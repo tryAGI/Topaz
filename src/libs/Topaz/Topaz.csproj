@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
+    <PackageId>tryAGI.Topaz</PackageId>
     <Description>C# SDK for Topaz Labs image and video enhancement APIs (upscale, denoise, sharpen, frame interpolation) based on the official OpenAPI specification.</Description>
     <PackageTags>topaz;topaz-labs;gigapixel;video-enhancement;image-upscaling;upscale;denoise;api;client;sdk;dotnet;openapi;specification;generated</PackageTags>
   </PropertyGroup>
