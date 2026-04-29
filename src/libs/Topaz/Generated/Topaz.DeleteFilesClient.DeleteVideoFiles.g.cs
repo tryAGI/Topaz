@@ -123,7 +123,7 @@ namespace Topaz
                 PrepareDeleteVideoFilesRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    requestId: requestId);
+                    requestId: requestId!);
 
                 return __httpRequest;
             }

@@ -155,63 +155,63 @@ namespace Topaz
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Image}"),
+                                    content: new global::System.Net.Http.StringContent(request.Image ?? string.Empty),
                                     name: "\"image\"");
                             } 
                             if (request.SourceId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.SourceId}"),
+                                    content: new global::System.Net.Http.StringContent(request.SourceId ?? string.Empty),
                                     name: "\"source_id\"");
                             } 
                             if (request.SourceUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.SourceUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.SourceUrl ?? string.Empty),
                                     name: "\"source_url\"");
                             } 
                             if (request.Model != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Model?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.Model).HasValue ? (request.Model).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"model\"");
                             } 
                             if (request.OutputHeight != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.OutputHeight}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.OutputHeight, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"output_height\"");
                             } 
                             if (request.OutputWidth != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.OutputWidth}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.OutputWidth, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"output_width\"");
                             } 
                             if (request.CropToFill != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.CropToFill}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.CropToFill, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"crop_to_fill\"");
                             } 
                             if (request.OutputFormat != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.OutputFormat?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.OutputFormat).HasValue ? (request.OutputFormat).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"output_format\"");
                             } 
                             if (request.WebhookUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.WebhookUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.WebhookUrl ?? string.Empty),
                                     name: "\"webhook_url\"");
                             }
                             __httpRequest.Content = __httpRequestContent;

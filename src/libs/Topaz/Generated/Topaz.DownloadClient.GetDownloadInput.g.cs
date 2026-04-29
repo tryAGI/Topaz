@@ -125,7 +125,7 @@ namespace Topaz
                 PrepareGetDownloadInputRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    processId: processId);
+                    processId: processId!);
 
                 return __httpRequest;
             }
