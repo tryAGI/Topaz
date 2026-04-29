@@ -120,7 +120,7 @@ namespace Topaz
                 PrepareCancelTaskRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    processId: processId);
+                    processId: processId!);
 
                 return __httpRequest;
             }

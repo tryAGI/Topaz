@@ -153,7 +153,7 @@ namespace Topaz
                 PrepareGetVideoRequestMetricsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    requestId: requestId);
+                    requestId: requestId!);
 
                 return __httpRequest;
             }
