@@ -43,7 +43,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to accept the created request's cost and upload the source video.
         /// </summary>
-        public AcceptRequestClient AcceptRequest => new AcceptRequestClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AcceptRequestClient AcceptRequest => new AcceptRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -52,7 +52,7 @@ namespace Topaz
         /// <summary>
         /// If an image processing job is no longer needed or was started in error, you can cancel it before it completes. The job must be in a cancellable state (e.g., not already completed or failed) for the request to be successful.
         /// </summary>
-        public CancelClient Cancel => new CancelClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CancelClient Cancel => new CancelClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -61,7 +61,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to cancel a request.
         /// </summary>
-        public CancelRequestClient CancelRequest => new CancelRequestClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CancelRequestClient CancelRequest => new CancelRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -70,7 +70,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to complete the multi-part upload and start processing.
         /// </summary>
-        public CompleteUploadClient CompleteUpload => new CompleteUploadClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CompleteUploadClient CompleteUpload => new CompleteUploadClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -79,7 +79,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to create an express request.
         /// </summary>
-        public CreateExpressRequestClient CreateExpressRequest => new CreateExpressRequestClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CreateExpressRequestClient CreateExpressRequest => new CreateExpressRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -88,7 +88,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to create a request and estimate costs.
         /// </summary>
-        public CreateRequestClient CreateRequest => new CreateRequestClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CreateRequestClient CreateRequest => new CreateRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -97,7 +97,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to delete your source and enhanced files.
         /// </summary>
-        public DeleteFilesClient DeleteFiles => new DeleteFilesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public DeleteFilesClient DeleteFiles => new DeleteFilesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -111,7 +111,7 @@ namespace Topaz
         ///   - `output_format`<br/>
         /// Please see the reference for further details. Check out the [available models](https://developer.topazlabs.com/image-api/available-models) to see which model options you have.
         /// </summary>
-        public DenoiseClient Denoise => new DenoiseClient(HttpClient, authorizations: Authorizations, options: Options)
+        public DenoiseClient Denoise => new DenoiseClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -120,7 +120,7 @@ namespace Topaz
         /// <summary>
         /// Access presigned URLs for downloading input or processed images. These endpoints allow you to securely retrieve the input or the processed image with an expiring URL.
         /// </summary>
-        public DownloadClient Download => new DownloadClient(HttpClient, authorizations: Authorizations, options: Options)
+        public DownloadClient Download => new DownloadClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -137,7 +137,7 @@ namespace Topaz
         ///   - `crop_to_fill`<br/>
         /// Please see the reference for further details. Check out the [available models](https://developer.topazlabs.com/image-api/available-models) to see which model options you have.
         /// </summary>
-        public EnhanceClient Enhance => new EnhanceClient(HttpClient, authorizations: Authorizations, options: Options)
+        public EnhanceClient Enhance => new EnhanceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -146,7 +146,7 @@ namespace Topaz
         /// <summary>
         /// Our estimates will allow you to predict the amount of time required and the number of credits that would be consumed in order to run a set of enhancements on a given image with certain input parameters.
         /// </summary>
-        public EstimateClient Estimate => new EstimateClient(HttpClient, authorizations: Authorizations, options: Options)
+        public EstimateClient Estimate => new EstimateClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -155,7 +155,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to get your video request history.
         /// </summary>
-        public GetRequestHistoryClient GetRequestHistory => new GetRequestHistoryClient(HttpClient, authorizations: Authorizations, options: Options)
+        public GetRequestHistoryClient GetRequestHistory => new GetRequestHistoryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -164,7 +164,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to get the metrics for a request.
         /// </summary>
-        public GetRequestMetricsClient GetRequestMetrics => new GetRequestMetricsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public GetRequestMetricsClient GetRequestMetrics => new GetRequestMetricsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -173,7 +173,7 @@ namespace Topaz
         /// <summary>
         /// This section allows you to get the status of a request.
         /// </summary>
-        public GetRequestStatusClient GetRequestStatus => new GetRequestStatusClient(HttpClient, authorizations: Authorizations, options: Options)
+        public GetRequestStatusClient GetRequestStatus => new GetRequestStatusClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -183,7 +183,7 @@ namespace Topaz
         /// Check and manage the statuses of your image processing jobs. Whether you are handling a single job or managing a queue of bulk image processing tasks, the Status endpoints allow you to monitor the progress and completion of your tasks.<br/>
         /// This is particularly useful for long-running jobs, where you can track progress and retrieve details such as percentage completion, estimated finish time, and current state (e.g., pending, processing, completed).
         /// </summary>
-        public ImageStatusClient ImageStatus => new ImageStatusClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ImageStatusClient ImageStatus => new ImageStatusClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -197,7 +197,7 @@ namespace Topaz
         ///   - `output_format`<br/>
         /// Please see the reference for further details. Check out the [available models](https://developer.topazlabs.com/image-api/available-models) to see which model options you have.
         /// </summary>
-        public LightingClient Lighting => new LightingClient(HttpClient, authorizations: Authorizations, options: Options)
+        public LightingClient Lighting => new LightingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -212,7 +212,7 @@ namespace Topaz
         ///   - `output_format`<br/>
         /// Please see the reference for further details.
         /// </summary>
-        public MattingClient Matting => new MattingClient(HttpClient, authorizations: Authorizations, options: Options)
+        public MattingClient Matting => new MattingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -226,7 +226,7 @@ namespace Topaz
         ///   - `output_format`<br/>
         /// Please see the reference for further details. Check out the [available models](https://developer.topazlabs.com/image-api/available-models) to see which model options you have.
         /// </summary>
-        public RestoreClient Restore => new RestoreClient(HttpClient, authorizations: Authorizations, options: Options)
+        public RestoreClient Restore => new RestoreClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -240,7 +240,7 @@ namespace Topaz
         ///   - `output_format`<br/>
         /// Please see the reference for further details. Check out the [available models](https://developer.topazlabs.com/image-api/available-models) to see which model options you have.
         /// </summary>
-        public SharpenClient Sharpen => new SharpenClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SharpenClient Sharpen => new SharpenClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -257,7 +257,7 @@ namespace Topaz
         ///   - `crop_to_fill`<br/>
         /// Please see the reference for further details.
         /// </summary>
-        public ToolClient Tool => new ToolClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ToolClient Tool => new ToolClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -266,7 +266,7 @@ namespace Topaz
         /// <summary>
         /// This section informs you about the system status.
         /// </summary>
-        public VideoStatusClient VideoStatus => new VideoStatusClient(HttpClient, authorizations: Authorizations, options: Options)
+        public VideoStatusClient VideoStatus => new VideoStatusClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -305,10 +305,10 @@ namespace Topaz
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public TopazClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Topaz.EndPointAuthorization>? authorizations = null,
-            global::Topaz.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Topaz.EndPointAuthorization>? authorizations,
+            global::Topaz.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

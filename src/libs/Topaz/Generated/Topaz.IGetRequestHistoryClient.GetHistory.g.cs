@@ -14,5 +14,15 @@ namespace Topaz
         global::System.Threading.Tasks.Task<global::Topaz.GetHistoryResponse> GetHistoryAsync(
             global::Topaz.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get My Request History<br/>
+        /// This endpoint will return your processing history.
+        /// </summary>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Topaz.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Topaz.AutoSDKHttpResponse<global::Topaz.GetHistoryResponse>> GetHistoryAsResponseAsync(
+            global::Topaz.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
