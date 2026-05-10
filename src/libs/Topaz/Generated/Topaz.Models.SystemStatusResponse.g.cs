@@ -68,5 +68,6 @@ namespace Topaz
         public SystemStatusResponse()
         {
         }
+
     }
 }

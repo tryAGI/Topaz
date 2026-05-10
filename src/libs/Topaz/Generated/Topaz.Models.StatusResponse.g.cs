@@ -313,5 +313,6 @@ namespace Topaz
         public StatusResponse()
         {
         }
+
     }
 }

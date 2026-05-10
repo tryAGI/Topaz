@@ -58,5 +58,6 @@ namespace Topaz
         public RequestEstimates()
         {
         }
+
     }
 }

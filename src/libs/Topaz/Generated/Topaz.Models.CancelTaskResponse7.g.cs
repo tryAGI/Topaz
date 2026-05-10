@@ -53,5 +53,6 @@ namespace Topaz
         public CancelTaskResponse7()
         {
         }
+
     }
 }

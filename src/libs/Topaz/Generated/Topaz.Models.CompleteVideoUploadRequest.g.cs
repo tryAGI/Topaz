@@ -59,5 +59,6 @@ namespace Topaz
         public CompleteVideoUploadRequest()
         {
         }
+
     }
 }

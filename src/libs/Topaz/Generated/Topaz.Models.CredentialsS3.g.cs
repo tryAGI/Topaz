@@ -60,5 +60,6 @@ namespace Topaz
         public CredentialsS3()
         {
         }
+
     }
 }

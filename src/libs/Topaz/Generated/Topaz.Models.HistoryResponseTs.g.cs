@@ -126,5 +126,6 @@ namespace Topaz
         public HistoryResponseTs()
         {
         }
+
     }
 }
