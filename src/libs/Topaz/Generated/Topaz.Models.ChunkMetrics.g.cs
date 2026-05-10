@@ -55,5 +55,6 @@ namespace Topaz
         public ChunkMetrics()
         {
         }
+
     }
 }

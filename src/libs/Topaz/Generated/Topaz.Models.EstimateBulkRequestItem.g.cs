@@ -131,5 +131,6 @@ namespace Topaz
         public EstimateBulkRequestItem()
         {
         }
+
     }
 }

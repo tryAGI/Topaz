@@ -42,5 +42,6 @@ namespace Topaz
         public GetVideoRequestMetricsResponse2()
         {
         }
+
     }
 }

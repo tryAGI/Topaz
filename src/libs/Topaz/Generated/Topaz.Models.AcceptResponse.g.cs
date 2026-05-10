@@ -72,5 +72,6 @@ namespace Topaz
         public AcceptResponse()
         {
         }
+
     }
 }

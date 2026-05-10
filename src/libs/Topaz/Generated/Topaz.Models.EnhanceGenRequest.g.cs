@@ -171,5 +171,6 @@ namespace Topaz
         public EnhanceGenRequest()
         {
         }
+
     }
 }

@@ -51,5 +51,6 @@ namespace Topaz
         public HistoryResponseTransaction()
         {
         }
+
     }
 }
