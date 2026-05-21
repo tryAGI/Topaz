@@ -41,5 +41,6 @@ namespace Topaz
         public DeleteAllStatusesResponse()
         {
         }
+
     }
 }

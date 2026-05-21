@@ -66,5 +66,6 @@ namespace Topaz
         public EstimationBulkResponseItemVariant1()
         {
         }
+
     }
 }

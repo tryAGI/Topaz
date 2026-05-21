@@ -114,10 +114,11 @@ namespace Topaz
             var __maxAttempts = global::Topaz.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Topaz.PathBuilder(
                                 path: "/image/v1/enhance/async",
                                 baseUri: HttpClient.BaseAddress);
@@ -150,6 +151,7 @@ namespace Topaz
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             if (request.Image != default)
                             {
@@ -157,64 +159,75 @@ namespace Topaz
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.Image ?? string.Empty),
                                     name: "\"image\"");
-                            } 
+
+                            }
                             if (request.SourceId != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.SourceId ?? string.Empty),
                                     name: "\"source_id\"");
-                            } 
+
+                            }
                             if (request.SourceUrl != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.SourceUrl ?? string.Empty),
                                     name: "\"source_url\"");
-                            } 
+
+                            }
                             if (request.Model != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((request.Model).HasValue ? (request.Model).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"model\"");
-                            } 
+
+                            }
                             if (request.OutputHeight != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.OutputHeight, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"output_height\"");
-                            } 
+
+                            }
                             if (request.OutputWidth != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.OutputWidth, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"output_width\"");
-                            } 
+
+                            }
                             if (request.CropToFill != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.CropToFill, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"crop_to_fill\"");
-                            } 
+
+                            }
                             if (request.OutputFormat != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((request.OutputFormat).HasValue ? (request.OutputFormat).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"output_format\"");
-                            } 
+
+                            }
                             if (request.WebhookUrl != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.WebhookUrl ?? string.Empty),
                                     name: "\"webhook_url\"");
+
                             }
+
                             __httpRequest.Content = __httpRequestContent;
+
                 global::Topaz.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -256,6 +269,8 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -266,6 +281,11 @@ namespace Topaz
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Topaz.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Topaz.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -283,6 +303,8 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -292,8 +314,7 @@ namespace Topaz
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Topaz.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -302,6 +323,11 @@ namespace Topaz
                         __attempt < __maxAttempts &&
                         global::Topaz.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Topaz.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Topaz.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Topaz.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -318,14 +344,15 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Topaz.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -365,6 +392,8 @@ namespace Topaz
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -385,6 +414,8 @@ namespace Topaz
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // The request contains malformed data in the body, path, or query parameters.
@@ -832,6 +863,7 @@ namespace Topaz
                                     return new global::Topaz.AutoSDKHttpResponse<global::Topaz.AsyncResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Topaz.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
                                         body: __value);
                                 }
                                 catch (global::System.Exception __ex)
@@ -865,6 +897,7 @@ namespace Topaz
                                     return new global::Topaz.AutoSDKHttpResponse<global::Topaz.AsyncResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Topaz.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
                                         body: __value);
                                 }
                                 catch (global::System.Exception __ex)

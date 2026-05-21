@@ -44,5 +44,6 @@ namespace Topaz
         public CreateVideoRequestRequestNotifications()
         {
         }
+
     }
 }

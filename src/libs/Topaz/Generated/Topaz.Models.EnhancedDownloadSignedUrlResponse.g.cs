@@ -70,5 +70,6 @@ namespace Topaz
         public EnhancedDownloadSignedUrlResponse()
         {
         }
+
     }
 }

@@ -42,5 +42,6 @@ namespace Topaz
         public CompleteVideoUploadResponse2()
         {
         }
+
     }
 }

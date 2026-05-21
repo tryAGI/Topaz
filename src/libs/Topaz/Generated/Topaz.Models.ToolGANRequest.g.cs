@@ -167,5 +167,6 @@ namespace Topaz
         public ToolGANRequest()
         {
         }
+
     }
 }

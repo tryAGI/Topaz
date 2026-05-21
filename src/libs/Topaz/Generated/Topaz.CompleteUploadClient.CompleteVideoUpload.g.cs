@@ -68,6 +68,41 @@ namespace Topaz
             global::Topaz.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await CompleteVideoUploadAsResponseAsync(
+                requestId: requestId,
+
+                request: request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Complete Video Upload<br/>
+        /// Send metadata of the multi-part uploads to complete the upload and begin processing the video.<br/>
+        /// Optionally include the MD5 hash of the source video file to validate successful upload before processing.<br/>
+        /// ## Request body<br/>
+        /// | **Property**    | **Type**         | **Description**                                                                                         |<br/>
+        /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
+        /// | **uploadResults**           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |<br/>
+        /// | **uploadResults.*.partNum** | Integer | Part number of the uploaded part, starting from 1                                                      |<br/>
+        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part   
+        /// </summary>
+        /// <param name="requestId">
+        /// Example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Topaz.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Topaz.AutoSDKHttpResponse<global::Topaz.CompleteVideoUploadResponse>> CompleteVideoUploadAsResponseAsync(
+            global::System.Guid requestId,
+
+            global::Topaz.CompleteVideoUploadRequest request,
+            global::Topaz.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -99,6 +134,7 @@ namespace Topaz
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Topaz.PathBuilder(
                                 path: $"/video/{requestId}/complete-upload/",
                                 baseUri: HttpClient.BaseAddress);
@@ -179,6 +215,8 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -189,6 +227,11 @@ namespace Topaz
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Topaz.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Topaz.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -206,6 +249,8 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -215,8 +260,7 @@ namespace Topaz
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Topaz.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -225,6 +269,11 @@ namespace Topaz
                         __attempt < __maxAttempts &&
                         global::Topaz.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Topaz.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Topaz.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Topaz.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -241,14 +290,15 @@ namespace Topaz
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Topaz.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -288,6 +338,8 @@ namespace Topaz
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -308,6 +360,8 @@ namespace Topaz
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Bad request
@@ -522,9 +576,13 @@ namespace Topaz
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::Topaz.CompleteVideoUploadResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Topaz.CompleteVideoUploadResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Topaz.AutoSDKHttpResponse<global::Topaz.CompleteVideoUploadResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Topaz.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -552,9 +610,13 @@ namespace Topaz
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::Topaz.CompleteVideoUploadResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Topaz.CompleteVideoUploadResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Topaz.AutoSDKHttpResponse<global::Topaz.CompleteVideoUploadResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Topaz.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

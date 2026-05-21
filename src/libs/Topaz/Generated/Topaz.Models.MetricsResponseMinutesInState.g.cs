@@ -90,5 +90,6 @@ namespace Topaz
         public MetricsResponseMinutesInState()
         {
         }
+
     }
 }

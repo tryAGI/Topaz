@@ -142,5 +142,6 @@ namespace Topaz
         public VideoStatusResponse()
         {
         }
+
     }
 }

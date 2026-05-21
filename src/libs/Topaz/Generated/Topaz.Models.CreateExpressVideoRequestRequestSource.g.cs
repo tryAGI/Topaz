@@ -69,5 +69,6 @@ namespace Topaz
         public CreateExpressVideoRequestRequestSource()
         {
         }
+
     }
 }

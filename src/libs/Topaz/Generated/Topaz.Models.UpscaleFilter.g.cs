@@ -252,5 +252,6 @@ namespace Topaz
         public UpscaleFilter()
         {
         }
+
     }
 }

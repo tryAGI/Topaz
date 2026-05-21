@@ -102,5 +102,6 @@ namespace Topaz
         public FrameInterpolationFilter()
         {
         }
+
     }
 }

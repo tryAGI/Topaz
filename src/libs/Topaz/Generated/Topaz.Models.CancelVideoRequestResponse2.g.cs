@@ -42,5 +42,6 @@ namespace Topaz
         public CancelVideoRequestResponse2()
         {
         }
+
     }
 }
