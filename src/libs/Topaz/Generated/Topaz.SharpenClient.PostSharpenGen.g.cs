@@ -419,18 +419,17 @@ namespace Topaz
                                     __exception_400 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_400,
-                                    ResponseObject = __value_400,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Authentication is required and has failed or has not yet been provided.
                             if ((int)__response.StatusCode == 401)
@@ -457,18 +456,17 @@ namespace Topaz
                                     __exception_401 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse2>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse2>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_401,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_401,
-                                    ResponseObject = __value_401,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Payment is required to access the resource.
                             if ((int)__response.StatusCode == 402)
@@ -495,18 +493,17 @@ namespace Topaz
                                     __exception_402 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse3>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse3>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_402 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_402,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_402,
-                                    ResponseObject = __value_402,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_402,
+                                    responseObject: __value_402,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The API key doesn't have permissions to perform the request.
                             if ((int)__response.StatusCode == 403)
@@ -533,18 +530,17 @@ namespace Topaz
                                     __exception_403 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse4>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse4>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_403,
-                                    ResponseObject = __value_403,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_403,
+                                    responseObject: __value_403,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The preconditions to process the request were not met.
                             if ((int)__response.StatusCode == 412)
@@ -571,18 +567,17 @@ namespace Topaz
                                     __exception_412 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse5>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse5>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_412 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_412,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_412,
-                                    ResponseObject = __value_412,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_412,
+                                    responseObject: __value_412,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request is larger than the server is willing or able to process.
                             if ((int)__response.StatusCode == 413)
@@ -609,18 +604,17 @@ namespace Topaz
                                     __exception_413 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse6>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse6>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_413 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_413,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_413,
-                                    ResponseObject = __value_413,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_413,
+                                    responseObject: __value_413,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request entity has a media type which the server or resource does not support.
                             if ((int)__response.StatusCode == 415)
@@ -647,18 +641,17 @@ namespace Topaz
                                     __exception_415 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse7>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse7>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_415 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_415,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_415,
-                                    ResponseObject = __value_415,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_415,
+                                    responseObject: __value_415,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request was well-formed but was unable to be followed due to semantic errors.
                             if ((int)__response.StatusCode == 422)
@@ -685,18 +678,17 @@ namespace Topaz
                                     __exception_422 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse8>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse8>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_422,
-                                    ResponseObject = __value_422,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request was sent too early to be processed. Please wait before retrying.
                             if ((int)__response.StatusCode == 425)
@@ -723,18 +715,17 @@ namespace Topaz
                                     __exception_425 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse9>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse9>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_425 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_425,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_425,
-                                    ResponseObject = __value_425,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_425,
+                                    responseObject: __value_425,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Too many requests hit the API too quickly. A backoff (e.g. exponential) is recommended for your requests.
                             if ((int)__response.StatusCode == 429)
@@ -761,18 +752,17 @@ namespace Topaz
                                     __exception_429 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse10>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse10>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_429,
-                                    ResponseObject = __value_429,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Unexpected error on our end.
                             if ((int)__response.StatusCode == 500)
@@ -799,18 +789,17 @@ namespace Topaz
                                     __exception_500 = __ex;
                                 }
 
-                                throw new global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse11>(
+
+                                throw global::Topaz.ApiException<global::Topaz.PostSharpenGenResponse11>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_500,
-                                    ResponseObject = __value_500,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -844,17 +833,15 @@ namespace Topaz
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Topaz.ApiException(
+                                    throw global::Topaz.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -891,17 +878,15 @@ namespace Topaz
                                     {
                                     }
 
-                                    throw new global::Topaz.ApiException(
+                                    throw global::Topaz.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
