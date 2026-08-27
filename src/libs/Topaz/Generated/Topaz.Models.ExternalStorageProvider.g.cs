@@ -9,7 +9,7 @@ namespace Topaz
     public enum ExternalStorageProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         S3,
     }

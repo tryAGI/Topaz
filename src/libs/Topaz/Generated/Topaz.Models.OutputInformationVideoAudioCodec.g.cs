@@ -10,15 +10,15 @@ namespace Topaz
     public enum OutputInformationVideoAudioCodec
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Aac,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ac3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm,
     }

@@ -10,7 +10,7 @@ namespace Topaz
     public enum SharpenGenRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SuperFocusV2,
     }

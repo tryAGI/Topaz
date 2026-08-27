@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HistoryResponse
     {
@@ -15,13 +15,13 @@ namespace Topaz
         public global::System.Guid? Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("userId")]
         public double? UserId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.HistoryResponseStatusJsonConverter))]
@@ -46,7 +46,7 @@ namespace Topaz
         public global::Topaz.RequestEstimates? Estimates { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transactions")]
         public global::System.Collections.Generic.IList<global::Topaz.HistoryResponseTransaction>? Transactions { get; set; }

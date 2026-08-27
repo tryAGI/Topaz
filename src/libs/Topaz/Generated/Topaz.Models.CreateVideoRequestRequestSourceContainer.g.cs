@@ -10,15 +10,15 @@ namespace Topaz
     public enum CreateVideoRequestRequestSourceContainer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mkv,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mov,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp4,
     }

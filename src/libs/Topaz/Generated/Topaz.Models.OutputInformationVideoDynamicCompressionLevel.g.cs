@@ -10,15 +10,15 @@ namespace Topaz
     public enum OutputInformationVideoDynamicCompressionLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mid,
     }

@@ -10,7 +10,7 @@ namespace Topaz
     public enum MattingGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Object,
     }

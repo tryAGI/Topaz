@@ -4,12 +4,12 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateExpressVideoRequestRequestDestination
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external")]
         public global::Topaz.ExternalStorage? External { get; set; }

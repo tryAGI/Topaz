@@ -10,19 +10,19 @@ namespace Topaz
     public enum FrameInterpolationFilterModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Apf2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Apo8,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chf3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chr2,
     }

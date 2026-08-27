@@ -4,20 +4,20 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum HistoryResponseTransactionOperation
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Commit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reserve,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rollback,
     }

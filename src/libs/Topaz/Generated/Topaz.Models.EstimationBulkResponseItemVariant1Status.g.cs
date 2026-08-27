@@ -9,7 +9,7 @@ namespace Topaz
     public enum EstimationBulkResponseItemVariant1Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

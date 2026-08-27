@@ -10,19 +10,19 @@ namespace Topaz
     public enum EnhanceGenRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RecoveryV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Redefine,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StandardMax,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wonder,
     }

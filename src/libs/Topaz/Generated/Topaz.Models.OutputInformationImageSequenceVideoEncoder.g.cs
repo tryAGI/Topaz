@@ -9,23 +9,23 @@ namespace Topaz
     public enum OutputInformationImageSequenceVideoEncoder
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dpx,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tiff,
     }

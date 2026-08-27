@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ExternalStorage
     {
@@ -25,7 +25,7 @@ namespace Topaz
         public string? PresignedUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("awsCredentials")]
         public global::Topaz.CredentialsS3? AwsCredentials { get; set; }

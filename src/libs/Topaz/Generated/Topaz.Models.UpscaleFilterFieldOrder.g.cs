@@ -10,15 +10,15 @@ namespace Topaz
     public enum UpscaleFilterFieldOrder
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BottomFirst,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TopFirst,
     }

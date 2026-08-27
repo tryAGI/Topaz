@@ -10,11 +10,11 @@ namespace Topaz
     public enum RestoreGenRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DustScratch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DustScratchV2,
     }

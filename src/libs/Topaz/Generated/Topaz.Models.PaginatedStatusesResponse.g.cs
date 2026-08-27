@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PaginatedStatusesResponse
     {
@@ -16,7 +16,7 @@ namespace Topaz
         public required global::System.Collections.Generic.IList<global::Topaz.StatusResponse> Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pagination")]
         [global::System.Text.Json.Serialization.JsonRequired]

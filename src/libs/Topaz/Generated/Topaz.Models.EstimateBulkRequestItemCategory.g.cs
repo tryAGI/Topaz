@@ -10,23 +10,23 @@ namespace Topaz
     public enum EstimateBulkRequestItemCategory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Denoise,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enhance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lighting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Restore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sharpen,
     }

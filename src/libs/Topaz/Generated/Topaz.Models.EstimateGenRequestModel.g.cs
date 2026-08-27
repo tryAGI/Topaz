@@ -10,31 +10,31 @@ namespace Topaz
     public enum EstimateGenRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DustScratch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DustScratchV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RecoveryV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Redefine,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StandardMax,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SuperFocusV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wonder,
     }
