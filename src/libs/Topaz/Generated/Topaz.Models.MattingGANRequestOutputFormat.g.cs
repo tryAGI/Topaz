@@ -10,7 +10,7 @@ namespace Topaz
     public enum MattingGANRequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
     }

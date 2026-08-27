@@ -10,31 +10,31 @@ namespace Topaz
     public enum EstimateGenRequestCategory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Denoise,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enhance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lighting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Matting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Restore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sharpen,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
     }

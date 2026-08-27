@@ -20,7 +20,7 @@ namespace Topaz.JsonConverters
                     {
                         return global::Topaz.EstimateBulkRequestItemModelExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

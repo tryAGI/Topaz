@@ -9,15 +9,15 @@ namespace Topaz
     public enum OutputInformationVideoAudioTransfer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Convert,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Copy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

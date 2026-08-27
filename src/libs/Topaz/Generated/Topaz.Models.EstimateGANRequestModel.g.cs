@@ -10,91 +10,91 @@ namespace Topaz
     public enum EstimateGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adjust,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AdjustV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cgi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Colorize,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Extreme,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HighFidelityV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LensBlur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LensBlurV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LowResolutionV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MotionBlur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Natural,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Object,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Portrait,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Refocus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StandardV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Strong,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextRefine,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransparencyUpscale,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WhiteBalance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wildlife,
     }

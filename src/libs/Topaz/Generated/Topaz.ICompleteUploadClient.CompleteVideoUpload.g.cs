@@ -13,7 +13,7 @@ namespace Topaz
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
         /// | **uploadResults**           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |<br/>
         /// | **uploadResults.*.partNum** | Integer | Part number of the uploaded part, starting from 1                                                      |<br/>
-        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part   
+        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part
         /// </summary>
         /// <param name="requestId">
         /// Example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
@@ -37,7 +37,7 @@ namespace Topaz
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
         /// | **uploadResults**           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |<br/>
         /// | **uploadResults.*.partNum** | Integer | Part number of the uploaded part, starting from 1                                                      |<br/>
-        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part   
+        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part
         /// </summary>
         /// <param name="requestId">
         /// Example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
@@ -61,7 +61,7 @@ namespace Topaz
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
         /// | **uploadResults**           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |<br/>
         /// | **uploadResults.*.partNum** | Integer | Part number of the uploaded part, starting from 1                                                      |<br/>
-        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part   
+        /// | **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part
         /// </summary>
         /// <param name="requestId">
         /// Example: c1f96dc2-c448-00e6-82ed-14ecb6403c62

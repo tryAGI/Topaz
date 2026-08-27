@@ -10,15 +10,15 @@ namespace Topaz
     public enum OutputInformationVideoContainer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mkv,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mov,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp4,
     }

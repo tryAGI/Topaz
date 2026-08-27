@@ -10,7 +10,7 @@ namespace Topaz
     public enum ToolGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransparencyUpscale,
     }

@@ -13,15 +13,15 @@ namespace Topaz
     public enum UpscaleFilterAuto
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Manual,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Relative,
     }

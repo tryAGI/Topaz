@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostRestoreGenResponse4
     {

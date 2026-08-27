@@ -4,12 +4,12 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MetricsResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minutesInState")]
         public global::Topaz.MetricsResponseMinutesInState? MinutesInState { get; set; }

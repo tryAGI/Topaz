@@ -20,7 +20,7 @@ namespace Topaz.JsonConverters
                     {
                         return global::Topaz.OutputInformationVideoAudioCodecExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

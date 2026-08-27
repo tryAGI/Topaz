@@ -10,15 +10,15 @@ namespace Topaz
     public enum DenoiseGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Extreme,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Strong,
     }

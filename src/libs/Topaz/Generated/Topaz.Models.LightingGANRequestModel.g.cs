@@ -10,19 +10,19 @@ namespace Topaz
     public enum LightingGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adjust,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AdjustV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Colorize,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WhiteBalance,
     }

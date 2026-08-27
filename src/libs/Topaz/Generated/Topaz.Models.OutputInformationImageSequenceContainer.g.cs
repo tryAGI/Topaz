@@ -10,23 +10,23 @@ namespace Topaz
     public enum OutputInformationImageSequenceContainer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dpx,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tiff,
     }

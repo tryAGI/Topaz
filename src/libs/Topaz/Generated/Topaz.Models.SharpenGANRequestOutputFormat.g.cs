@@ -10,23 +10,23 @@ namespace Topaz
     public enum SharpenGANRequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tif,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tiff,
     }

@@ -10,39 +10,39 @@ namespace Topaz
     public enum SharpenGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LensBlur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LensBlurV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MotionBlur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Natural,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Portrait,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Refocus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Strong,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wildlife,
     }

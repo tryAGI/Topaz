@@ -10,15 +10,15 @@ namespace Topaz
     public enum UpscaleFilterFocusFixLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Strong,
     }

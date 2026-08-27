@@ -9,19 +9,19 @@ namespace Topaz
     public enum OutputInformationVideoVideoEncoder
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Av1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H264,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H265,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Vp9,
     }

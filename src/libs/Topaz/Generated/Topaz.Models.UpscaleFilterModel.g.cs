@@ -10,103 +10,103 @@ namespace Topaz
     public enum UpscaleFilterModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Aaa9,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ahq12,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Alq13,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Alqs2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Amq13,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Amqs2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Color1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ddv3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dtd4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dtds2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dtv4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dtvs2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gcg5,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ghq5,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Iris2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Iris3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Nxf1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Nxhf1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Nxl1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Nyx3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Prob4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rhea1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Thd3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Thf4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Thm2,
     }

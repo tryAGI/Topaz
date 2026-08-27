@@ -10,23 +10,23 @@ namespace Topaz
     public enum EnhanceGANRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cgi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HighFidelityV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LowResolutionV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StandardV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextRefine,
     }

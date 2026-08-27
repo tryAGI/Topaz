@@ -4,12 +4,12 @@
 namespace Topaz
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HistoryResponseTransaction
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("operation")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.HistoryResponseTransactionOperationJsonConverter))]

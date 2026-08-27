@@ -10,15 +10,15 @@ namespace Topaz
     public enum UpscaleFilterVideoType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Interlaced,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Progressive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProgressiveInterlaced,
     }

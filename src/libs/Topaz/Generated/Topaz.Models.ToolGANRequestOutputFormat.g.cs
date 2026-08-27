@@ -10,7 +10,7 @@ namespace Topaz
     public enum ToolGANRequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
     }
