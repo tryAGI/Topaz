@@ -47,7 +47,11 @@ namespace Topaz
         /// |-------------------------|----------|----------------------------|<br/>
         /// | **isAvailable**         | Boolean  | System availability status |<br/>
         /// | **availabilityMessage** | String   | Availability message       |<br/>
-        /// | **supportedModels**     | Array    | List of supported AI models in their shortened format (apo-8 for Apollo v8) |
+        /// | **supportedModels**     | Array    | List of supported AI models in their shortened format (apo-8 for Apollo v8) |<br/>
+        /// | **isFrameInterpolationSupported** | Boolean | Whether frame interpolation models are currently accepted |<br/>
+        /// This endpoint is public and does not require an API key.<br/>
+        /// `supportedModels` is the authoritative list of models the system currently accepts. It may include<br/>
+        /// models beyond those enumerated in the filter schemas of this document.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -71,7 +75,11 @@ namespace Topaz
         /// |-------------------------|----------|----------------------------|<br/>
         /// | **isAvailable**         | Boolean  | System availability status |<br/>
         /// | **availabilityMessage** | String   | Availability message       |<br/>
-        /// | **supportedModels**     | Array    | List of supported AI models in their shortened format (apo-8 for Apollo v8) |
+        /// | **supportedModels**     | Array    | List of supported AI models in their shortened format (apo-8 for Apollo v8) |<br/>
+        /// | **isFrameInterpolationSupported** | Boolean | Whether frame interpolation models are currently accepted |<br/>
+        /// This endpoint is public and does not require an API key.<br/>
+        /// `supportedModels` is the authoritative list of models the system currently accepts. It may include<br/>
+        /// models beyond those enumerated in the filter schemas of this document.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

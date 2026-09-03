@@ -56,6 +56,11 @@ namespace Topaz
         public CancelClient Cancel { get; }
 
         /// <summary>
+        /// This section allows you to preview the credit outcome of canceling a request.
+        /// </summary>
+        public CancelEstimateClient CancelEstimate { get; }
+
+        /// <summary>
         /// This section allows you to cancel a request.
         /// </summary>
         public CancelRequestClient CancelRequest { get; }
@@ -112,6 +117,11 @@ namespace Topaz
         /// Our estimates will allow you to predict the amount of time required and the number of credits that would be consumed in order to run a set of enhancements on a given image with certain input parameters.
         /// </summary>
         public EstimateClient Estimate { get; }
+
+        /// <summary>
+        /// This section allows you to get the full record of a request.
+        /// </summary>
+        public GetRequestClient GetRequest { get; }
 
         /// <summary>
         /// This section allows you to get your video request history.

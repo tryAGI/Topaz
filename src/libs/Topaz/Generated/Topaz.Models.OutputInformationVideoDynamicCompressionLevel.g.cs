@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// __Required if videoBitrate is not provided.__ Automatic CQP selection.<br/>
+    /// Automatic CQP selection. Mutually exclusive with `videoBitrate`. If neither is provided, this defaults to `High`. Applies to the `AV1`, `H264`, and `H265` encoders only.<br/>
     /// Example: Mid
     /// </summary>
     public enum OutputInformationVideoDynamicCompressionLevel

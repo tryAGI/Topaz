@@ -16,6 +16,30 @@ namespace Topaz
         public double? MinutesProcessing { get; set; }
 
         /// <summary>
+        /// Average processing speed of the node<br/>
+        /// Example: 2.34
+        /// </summary>
+        /// <example>2.34</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("averageFps")]
+        public double? AverageFps { get; set; }
+
+        /// <summary>
+        /// In percentage<br/>
+        /// Example: 56
+        /// </summary>
+        /// <example>56</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("averageGpuUtilization")]
+        public double? AverageGpuUtilization { get; set; }
+
+        /// <summary>
+        /// In percentage<br/>
+        /// Example: 65
+        /// </summary>
+        /// <example>65</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("averageGpuMemoryUtilization")]
+        public double? AverageGpuMemoryUtilization { get; set; }
+
+        /// <summary>
         /// Example: 320
         /// </summary>
         /// <example>320</example>
@@ -55,6 +79,18 @@ namespace Topaz
         /// <param name="minutesProcessing">
         /// Example: 12.3
         /// </param>
+        /// <param name="averageFps">
+        /// Average processing speed of the node<br/>
+        /// Example: 2.34
+        /// </param>
+        /// <param name="averageGpuUtilization">
+        /// In percentage<br/>
+        /// Example: 56
+        /// </param>
+        /// <param name="averageGpuMemoryUtilization">
+        /// In percentage<br/>
+        /// Example: 65
+        /// </param>
         /// <param name="inputFrames">
         /// Example: 320
         /// </param>
@@ -72,12 +108,18 @@ namespace Topaz
 #endif
         public ChunkMetricsTask(
             double? minutesProcessing,
+            double? averageFps,
+            double? averageGpuUtilization,
+            double? averageGpuMemoryUtilization,
             int? inputFrames,
             int? outputFrames,
             string? inputSize,
             string? outputSize)
         {
             this.MinutesProcessing = minutesProcessing;
+            this.AverageFps = averageFps;
+            this.AverageGpuUtilization = averageGpuUtilization;
+            this.AverageGpuMemoryUtilization = averageGpuMemoryUtilization;
             this.InputFrames = inputFrames;
             this.OutputFrames = outputFrames;
             this.InputSize = inputSize;

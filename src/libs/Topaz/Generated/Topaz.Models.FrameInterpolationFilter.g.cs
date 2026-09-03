@@ -24,7 +24,7 @@ namespace Topaz
         /// </summary>
         /// <example>2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("slowmo")]
-        public double? Slowmo { get; set; }
+        public int? Slowmo { get; set; }
 
         /// <summary>
         /// Output frame rate, does not increase duration<br/>
@@ -84,7 +84,7 @@ namespace Topaz
 #endif
         public FrameInterpolationFilter(
             global::Topaz.FrameInterpolationFilterModel model,
-            double? slowmo,
+            int? slowmo,
             double? fps,
             bool? duplicate,
             double? duplicateThreshold)

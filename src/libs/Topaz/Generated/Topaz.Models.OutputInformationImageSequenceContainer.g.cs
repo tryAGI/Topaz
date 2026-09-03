@@ -24,6 +24,10 @@ namespace Topaz
         /// <summary>
         ///
         /// </summary>
+        Jpg,
+        /// <summary>
+        ///
+        /// </summary>
         Png,
         /// <summary>
         ///
@@ -46,6 +50,7 @@ namespace Topaz
                 OutputInformationImageSequenceContainer.Dpx => "DPX",
                 OutputInformationImageSequenceContainer.Exr => "EXR",
                 OutputInformationImageSequenceContainer.Jpeg => "JPEG",
+                OutputInformationImageSequenceContainer.Jpg => "JPG",
                 OutputInformationImageSequenceContainer.Png => "PNG",
                 OutputInformationImageSequenceContainer.Tiff => "TIFF",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -61,6 +66,7 @@ namespace Topaz
                 "DPX" => OutputInformationImageSequenceContainer.Dpx,
                 "EXR" => OutputInformationImageSequenceContainer.Exr,
                 "JPEG" => OutputInformationImageSequenceContainer.Jpeg,
+                "JPG" => OutputInformationImageSequenceContainer.Jpg,
                 "PNG" => OutputInformationImageSequenceContainer.Png,
                 "TIFF" => OutputInformationImageSequenceContainer.Tiff,
                 _ => null,

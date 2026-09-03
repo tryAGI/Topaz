@@ -133,6 +133,10 @@ namespace Topaz
 
             typeof(global::Topaz.JsonConverters.EstimationBulkResponseItemVariant2StatusNullableJsonConverter),
 
+            typeof(global::Topaz.JsonConverters.CancelEstimateResponseStatusJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelEstimateResponseStatusNullableJsonConverter),
+
             typeof(global::Topaz.JsonConverters.ExternalStorageProviderJsonConverter),
 
             typeof(global::Topaz.JsonConverters.ExternalStorageProviderNullableJsonConverter),
@@ -141,13 +145,13 @@ namespace Topaz
 
             typeof(global::Topaz.JsonConverters.FrameInterpolationFilterModelNullableJsonConverter),
 
-            typeof(global::Topaz.JsonConverters.HistoryResponseStatusJsonConverter),
+            typeof(global::Topaz.JsonConverters.VideoRequestRecordStatusJsonConverter),
 
-            typeof(global::Topaz.JsonConverters.HistoryResponseStatusNullableJsonConverter),
+            typeof(global::Topaz.JsonConverters.VideoRequestRecordStatusNullableJsonConverter),
 
-            typeof(global::Topaz.JsonConverters.HistoryResponseTransactionOperationJsonConverter),
+            typeof(global::Topaz.JsonConverters.VideoRequestRecordTransactionOperationJsonConverter),
 
-            typeof(global::Topaz.JsonConverters.HistoryResponseTransactionOperationNullableJsonConverter),
+            typeof(global::Topaz.JsonConverters.VideoRequestRecordTransactionOperationNullableJsonConverter),
 
             typeof(global::Topaz.JsonConverters.OutputInformationImageSequenceVideoEncoderJsonConverter),
 
@@ -205,6 +209,14 @@ namespace Topaz
 
             typeof(global::Topaz.JsonConverters.UpscaleFilterFocusFixLevelNullableJsonConverter),
 
+            typeof(global::Topaz.JsonConverters.UpscaleFilterGrainTypeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.UpscaleFilterGrainTypeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.UpscaleFilterTransferFunctionJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.UpscaleFilterTransferFunctionNullableJsonConverter),
+
             typeof(global::Topaz.JsonConverters.CreateVideoRequestRequestSourceContainerJsonConverter),
 
             typeof(global::Topaz.JsonConverters.CreateVideoRequestRequestSourceContainerNullableJsonConverter),
@@ -212,6 +224,214 @@ namespace Topaz
             typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestRequestSourceContainerJsonConverter),
 
             typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestRequestSourceContainerNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetSystemStatusResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetSystemStatusResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode5JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode5NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode6JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode6NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode7JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode7NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode5JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode5NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode5JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.CancelVideoRequestResponseErrorCode5NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode5JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode5NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode5JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode5NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetVideoRequestMetricsResponseErrorCode4NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCodeJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCodeNullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode2JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode2NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode3JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode3NullableJsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode4JsonConverter),
+
+            typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode4NullableJsonConverter),
 
             typeof(global::Topaz.JsonConverters.OneOfJsonConverter<global::Topaz.EstimationBulkResponseItemVariant1, global::Topaz.EstimationBulkResponseItemVariant2>),
 
@@ -283,11 +503,13 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.StatusResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelEstimateResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelEstimateResponseStatus), TypeInfoPropertyName = "CancelEstimateResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ChunkMetrics))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.ChunkMetricsTask>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ChunkMetricsTask))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.RequestEstimates))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CredentialsS3))]
@@ -295,16 +517,27 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ExternalStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ExternalStorageProvider), TypeInfoPropertyName = "ExternalStorageProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ExternalStorageMultipart))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.FrameInterpolationFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.FrameInterpolationFilterModel), TypeInfoPropertyName = "FrameInterpolationFilterModel2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponseStatus), TypeInfoPropertyName = "HistoryResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponseTs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.HistoryResponseTransaction>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponseTransaction))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponseTransactionOperation), TypeInfoPropertyName = "HistoryResponseTransactionOperation2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.HistoryResponseError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.InitialEstimates))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecord))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordStatus), TypeInfoPropertyName = "VideoRequestRecordStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordTs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordProcessing))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordProcessingTopserving))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.AnyOf<global::Topaz.UpscaleFilter, global::Topaz.FrameInterpolationFilter>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationVideo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordSource))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordSourceResolution))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordDestination))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.VideoRequestRecordTransaction>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordTransaction))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordTransactionOperation), TypeInfoPropertyName = "VideoRequestRecordTransactionOperation2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordOverrides))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoRequestRecordError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AnyOf<global::Topaz.UpscaleFilter, global::Topaz.FrameInterpolationFilter>), TypeInfoPropertyName = "AnyOfUpscaleFilterFrameInterpolationFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.MetricsResponse))]
@@ -314,7 +547,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationImageSequenceResolution))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationImageSequenceVideoEncoder), TypeInfoPropertyName = "OutputInformationImageSequenceVideoEncoder2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationImageSequenceContainer), TypeInfoPropertyName = "OutputInformationImageSequenceContainer2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationVideo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationVideoResolution))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationVideoAudioCodec), TypeInfoPropertyName = "OutputInformationVideoAudioCodec2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OutputInformationVideoAudioTransfer), TypeInfoPropertyName = "OutputInformationVideoAudioTransfer2")]
@@ -324,7 +556,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.ProcessingStatIntermediateItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ProcessingStatIntermediateItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.ProcessingStatIntermediateItemStatus), TypeInfoPropertyName = "ProcessingStatIntermediateItemStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoStatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.VideoStatusResponseStatus), TypeInfoPropertyName = "VideoStatusResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.SystemStatusResponse))]
@@ -333,6 +564,8 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterAuto), TypeInfoPropertyName = "UpscaleFilterAuto2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterFieldOrder), TypeInfoPropertyName = "UpscaleFilterFieldOrder2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterFocusFixLevel), TypeInfoPropertyName = "UpscaleFilterFocusFixLevel2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterGrainType), TypeInfoPropertyName = "UpscaleFilterGrainType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterTransferFunction), TypeInfoPropertyName = "UpscaleFilterTransferFunction2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequestSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequestSourceContainer), TypeInfoPropertyName = "CreateVideoRequestRequestSourceContainer2")]
@@ -357,7 +590,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse3))]
@@ -368,7 +600,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostEnhanceGenResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse3))]
@@ -379,7 +610,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse3))]
@@ -390,7 +620,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostSharpenGenResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse3))]
@@ -401,7 +630,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostDenoiseResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse3))]
@@ -412,7 +640,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostRestoreGenResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse3))]
@@ -423,7 +650,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostLightingResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse3))]
@@ -434,7 +660,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostMattingResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse3))]
@@ -445,7 +670,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse10))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.PostToolResponse11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OneOf<global::System.Collections.Generic.IList<global::Topaz.StatusResponse>, global::Topaz.PaginatedStatusesResponse>), TypeInfoPropertyName = "OneOfIListStatusResponsePaginatedStatusesResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetAllStatusesResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetAllStatusesResponse3))]
@@ -506,64 +730,150 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetSystemStatusResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetSystemStatusResponseErrorCode), TypeInfoPropertyName = "GetSystemStatusResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.CreateVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode2), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode3), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode4), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponseErrorCode), TypeInfoPropertyName = "CreateExpressVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.CreateExpressVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponseErrorCode2), TypeInfoPropertyName = "CreateExpressVideoRequestResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponseErrorCode3), TypeInfoPropertyName = "CreateExpressVideoRequestResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateExpressVideoRequestResponseErrorCode4), TypeInfoPropertyName = "CreateExpressVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.AcceptVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode2), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode3), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode4), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode5), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode52")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode6), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode62")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponse7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.AcceptVideoRequestResponseErrorCode7), TypeInfoPropertyName = "AcceptVideoRequestResponseErrorCode72")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseErrorCode), TypeInfoPropertyName = "CompleteVideoUploadResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.CompleteVideoUploadResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseErrorCode2), TypeInfoPropertyName = "CompleteVideoUploadResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseErrorCode3), TypeInfoPropertyName = "CompleteVideoUploadResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseErrorCode4), TypeInfoPropertyName = "CompleteVideoUploadResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponse6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CompleteVideoUploadResponseErrorCode5), TypeInfoPropertyName = "CompleteVideoUploadResponseErrorCode52")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponseErrorCode), TypeInfoPropertyName = "GetVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponseErrorCode2), TypeInfoPropertyName = "GetVideoRequestResponseErrorCode22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponseErrorCode3), TypeInfoPropertyName = "GetVideoRequestResponseErrorCode32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestResponseErrorCode4), TypeInfoPropertyName = "GetVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseErrorCode), TypeInfoPropertyName = "CancelVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.CancelVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseErrorCode2), TypeInfoPropertyName = "CancelVideoRequestResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseErrorCode3), TypeInfoPropertyName = "CancelVideoRequestResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseErrorCode4), TypeInfoPropertyName = "CancelVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponse6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelVideoRequestResponseErrorCode5), TypeInfoPropertyName = "CancelVideoRequestResponseErrorCode52")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.GetCancelEstimateResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode2), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode3), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode4), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode5), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode52")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.DeleteVideoFilesResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode52")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponseErrorCode), TypeInfoPropertyName = "GetVideoRequestStatusResponseErrorCode2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponseErrorCode2), TypeInfoPropertyName = "GetVideoRequestStatusResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponseErrorCode3), TypeInfoPropertyName = "GetVideoRequestStatusResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestStatusResponseErrorCode4), TypeInfoPropertyName = "GetVideoRequestStatusResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponseErrorCode), TypeInfoPropertyName = "GetVideoRequestMetricsResponseErrorCode2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponseErrorCode2), TypeInfoPropertyName = "GetVideoRequestMetricsResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponseErrorCode3), TypeInfoPropertyName = "GetVideoRequestMetricsResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetVideoRequestMetricsResponseErrorCode4), TypeInfoPropertyName = "GetVideoRequestMetricsResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.HistoryResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.VideoRequestRecord>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode), TypeInfoPropertyName = "GetHistoryResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.GetHistoryResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode2), TypeInfoPropertyName = "GetHistoryResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode3), TypeInfoPropertyName = "GetHistoryResponseErrorCode32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode4), TypeInfoPropertyName = "GetHistoryResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.EstimateBulkRequestItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.OneOf<global::Topaz.EstimationBulkResponseItemVariant1, global::Topaz.EstimationBulkResponseItemVariant2>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.StatusResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.ChunkMetricsTask>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.HistoryResponseTransaction>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.AnyOf<global::Topaz.UpscaleFilter, global::Topaz.FrameInterpolationFilter>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.VideoRequestRecordTransaction>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.ChunkMetrics>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.ProcessingStatIntermediateItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.CompleteVideoUploadRequestUploadResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.OneOf<global::System.Collections.Generic.List<global::Topaz.StatusResponse>, global::Topaz.PaginatedStatusesResponse>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.HistoryResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.CreateVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.CreateExpressVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.AcceptVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.CompleteVideoUploadResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.CancelVideoRequestResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.GetCancelEstimateResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.DeleteVideoFilesResponseError>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.VideoRequestRecord>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.GetHistoryResponseError>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

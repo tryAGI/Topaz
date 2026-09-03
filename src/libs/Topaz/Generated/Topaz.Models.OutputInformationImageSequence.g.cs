@@ -25,14 +25,6 @@ namespace Topaz
         public required double FrameRate { get; set; }
 
         /// <summary>
-        /// Video codec ID, if known. Defaults to videoEncoder.<br/>
-        /// Example: h265-main-win-nvidia
-        /// </summary>
-        /// <example>h265-main-win-nvidia</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("codecId")]
-        public string? CodecId { get; set; }
-
-        /// <summary>
         /// Example: TIFF
         /// </summary>
         /// <example>TIFF</example>
@@ -81,10 +73,6 @@ namespace Topaz
         /// Frame rate<br/>
         /// Example: 30
         /// </param>
-        /// <param name="codecId">
-        /// Video codec ID, if known. Defaults to videoEncoder.<br/>
-        /// Example: h265-main-win-nvidia
-        /// </param>
         /// <param name="videoEncoder">
         /// Example: TIFF
         /// </param>
@@ -106,7 +94,6 @@ namespace Topaz
         public OutputInformationImageSequence(
             global::Topaz.OutputInformationImageSequenceResolution resolution,
             double frameRate,
-            string? codecId,
             global::Topaz.OutputInformationImageSequenceVideoEncoder? videoEncoder,
             string? videoProfile,
             bool? cropToFit,
@@ -114,7 +101,6 @@ namespace Topaz
         {
             this.Resolution = resolution ?? throw new global::System.ArgumentNullException(nameof(resolution));
             this.FrameRate = frameRate;
-            this.CodecId = codecId;
             this.VideoEncoder = videoEncoder;
             this.VideoProfile = videoProfile;
             this.CropToFit = cropToFit;

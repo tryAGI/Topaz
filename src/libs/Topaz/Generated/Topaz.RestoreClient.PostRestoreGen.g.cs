@@ -581,24 +581,20 @@ namespace Topaz
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The request is larger than the server is willing or able to process.
+                            //
                             if ((int)__response.StatusCode == 413)
                             {
                                 string? __content_413 = null;
                                 global::System.Exception? __exception_413 = null;
-                                global::Topaz.PostRestoreGenResponse6? __value_413 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_413 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_413 = global::Topaz.PostRestoreGenResponse6.FromJson(__content_413, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_413 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_413 = global::Topaz.PostRestoreGenResponse6.FromJson(__content_413, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -607,12 +603,11 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse6>.Create(
+                                throw global::Topaz.ApiException.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_413 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_413,
                                     responseBody: __content_413,
-                                    responseObject: __value_413,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -623,19 +618,19 @@ namespace Topaz
                             {
                                 string? __content_415 = null;
                                 global::System.Exception? __exception_415 = null;
-                                global::Topaz.PostRestoreGenResponse7? __value_415 = null;
+                                global::Topaz.PostRestoreGenResponse6? __value_415 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_415 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_415 = global::Topaz.PostRestoreGenResponse7.FromJson(__content_415, JsonSerializerContext);
+                                        __value_415 = global::Topaz.PostRestoreGenResponse6.FromJson(__content_415, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_415 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_415 = global::Topaz.PostRestoreGenResponse7.FromJson(__content_415, JsonSerializerContext);
+                                        __value_415 = global::Topaz.PostRestoreGenResponse6.FromJson(__content_415, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -644,7 +639,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse7>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse6>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_415 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_415,
@@ -660,19 +655,19 @@ namespace Topaz
                             {
                                 string? __content_422 = null;
                                 global::System.Exception? __exception_422 = null;
-                                global::Topaz.PostRestoreGenResponse8? __value_422 = null;
+                                global::Topaz.PostRestoreGenResponse7? __value_422 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::Topaz.PostRestoreGenResponse8.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = global::Topaz.PostRestoreGenResponse7.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::Topaz.PostRestoreGenResponse8.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = global::Topaz.PostRestoreGenResponse7.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -681,7 +676,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse8>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse7>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
@@ -697,19 +692,19 @@ namespace Topaz
                             {
                                 string? __content_425 = null;
                                 global::System.Exception? __exception_425 = null;
-                                global::Topaz.PostRestoreGenResponse9? __value_425 = null;
+                                global::Topaz.PostRestoreGenResponse8? __value_425 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_425 = global::Topaz.PostRestoreGenResponse9.FromJson(__content_425, JsonSerializerContext);
+                                        __value_425 = global::Topaz.PostRestoreGenResponse8.FromJson(__content_425, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_425 = global::Topaz.PostRestoreGenResponse9.FromJson(__content_425, JsonSerializerContext);
+                                        __value_425 = global::Topaz.PostRestoreGenResponse8.FromJson(__content_425, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -718,7 +713,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse9>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse8>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_425 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_425,
@@ -734,19 +729,19 @@ namespace Topaz
                             {
                                 string? __content_429 = null;
                                 global::System.Exception? __exception_429 = null;
-                                global::Topaz.PostRestoreGenResponse10? __value_429 = null;
+                                global::Topaz.PostRestoreGenResponse9? __value_429 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_429 = global::Topaz.PostRestoreGenResponse10.FromJson(__content_429, JsonSerializerContext);
+                                        __value_429 = global::Topaz.PostRestoreGenResponse9.FromJson(__content_429, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_429 = global::Topaz.PostRestoreGenResponse10.FromJson(__content_429, JsonSerializerContext);
+                                        __value_429 = global::Topaz.PostRestoreGenResponse9.FromJson(__content_429, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -755,7 +750,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse10>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse9>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
@@ -771,19 +766,19 @@ namespace Topaz
                             {
                                 string? __content_500 = null;
                                 global::System.Exception? __exception_500 = null;
-                                global::Topaz.PostRestoreGenResponse11? __value_500 = null;
+                                global::Topaz.PostRestoreGenResponse10? __value_500 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Topaz.PostRestoreGenResponse11.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.PostRestoreGenResponse10.FromJson(__content_500, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Topaz.PostRestoreGenResponse11.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.PostRestoreGenResponse10.FromJson(__content_500, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -792,7 +787,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse11>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostRestoreGenResponse10>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,

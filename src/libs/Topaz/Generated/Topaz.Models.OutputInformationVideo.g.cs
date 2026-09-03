@@ -4,7 +4,36 @@
 namespace Topaz
 {
     /// <summary>
-    ///
+    /// Desired output settings.<br/>
+    /// Some values are adjusted server-side before processing:<br/>
+    /// - `resolution` width and height are rounded up to the nearest multiple of 4.<br/>
+    /// - `resolution` is forced to the source resolution when no upscale model is present in `filters`.<br/>
+    /// - `frameRate` is forced to the source frame rate when no frame interpolation model is present in `filters`, and defaults to it when omitted.<br/>
+    /// - With a frame interpolation model, `frameRate` and that filter's `fps` are both set to the greater of the two.<br/>
+    /// - `container` is forced to `mov` when `videoEncoder` is `ProRes` and to `mp4` when it is `AV1` or `VP9`, and defaults to `mp4` otherwise.<br/>
+    /// The express endpoint supplies no source metadata, so nothing is inferred from the source there: only `resolution` is required, `frameRate` is required only when a frame interpolation filter omits its own `fps`, and the rest of the fields listed as required below take the defaults noted above.<br/>
+    /// #### Supported encoders and profiles<br/>
+    /// Every accepted `videoEncoder` / `videoProfile` pair is listed below. `videoEncoder` defaults to `H265` and `videoProfile` to the default profile of the chosen encoder. Any other combination is rejected with `400` `INVALID_INPUT`, and the error message lists the profiles the encoder does support.<br/>
+    /// | **videoEncoder** | **videoProfile**     | **container**       | **Max resolution** |<br/>
+    /// |------------------|----------------------|---------------------|--------------------|<br/>
+    /// | AV1              | `8-bit` _(default)_  | `mp4`               | 16384 x 8704       |<br/>
+    /// | AV1              | `10-bit`             | `mp4`               | 16384 x 8704       |<br/>
+    /// | H264             | `High` _(default)_   | `mp4`, `mov`, `mkv` | 4096 x 4096        |<br/>
+    /// | H265             | `Main`               | `mp4`, `mov`, `mkv` | 8192 x 8192        |<br/>
+    /// | H265             | `Main10` _(default)_ | `mp4`, `mov`, `mkv` | 8192 x 8192        |<br/>
+    /// | ProRes           | `422 Proxy`          | `mov`               | 16386 x 16386      |<br/>
+    /// | ProRes           | `422 LT`             | `mov`               | 16386 x 16386      |<br/>
+    /// | ProRes           | `422 Std`            | `mov`               | 16386 x 16386      |<br/>
+    /// | ProRes           | `422 HQ` _(default)_ | `mov`               | 16386 x 16386      |<br/>
+    /// | VP9              | `Good` _(default)_   | `mp4`               | 8192 x 8192        |<br/>
+    /// | VP9              | `Best`               | `mp4`               | 8192 x 8192        |<br/>
+    /// - Encoder and profile values are matched case-insensitively.<br/>
+    /// - **Max resolution** applies in either orientation, so AV1 also accepts 8704 x 16384. Exceeding it is rejected with `400` `INVALID_INPUT`.<br/>
+    /// - **container** lists the containers you can receive for that encoder. ProRes, AV1, and VP9 replace whatever `container` you send with the single value shown; H264 and H265 honor your choice among the values shown.<br/>
+    /// - `videoBitrate` is capped per encoder — **800 mbps** for AV1, **2000 mbps** for H264, H265, and VP9, and uncapped for ProRes. A higher value is rejected with `400` `INVALID_INPUT` — unless `dynamicCompressionLevel` is also set, in which case `videoBitrate` is discarded and the compression level is used instead.<br/>
+    /// - `VP9` requires `videoBitrate`. Selecting it without one is rejected with `400` `INVALID_INPUT`.<br/>
+    /// - `dynamicCompressionLevel` maps to a CQP value defined per encoder and profile, and applies to AV1, H264, and H265 only.<br/>
+    /// - For ProRes and VP9 the storage portion of the cost estimate is derived from the source file size rather than a predicted output size.
     /// </summary>
     public sealed partial class OutputInformationVideo
     {
@@ -33,14 +62,13 @@ namespace Topaz
         public string? AudioBitrate { get; set; }
 
         /// <summary>
-        /// __Required if audioTransfer is Copy or Convert.__<br/>
+        /// __Required unless audioTransfer is None.__<br/>
         /// Example: AAC
         /// </summary>
         /// <example>AAC</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("audioCodec")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.OutputInformationVideoAudioCodecJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Topaz.OutputInformationVideoAudioCodec AudioCodec { get; set; }
+        public global::Topaz.OutputInformationVideoAudioCodec? AudioCodec { get; set; }
 
         /// <summary>
         /// Example: Copy
@@ -52,14 +80,7 @@ namespace Topaz
         public required global::Topaz.OutputInformationVideoAudioTransfer AudioTransfer { get; set; }
 
         /// <summary>
-        /// Video codec ID, if known. Defaults to videoEncoder.<br/>
-        /// Example: h265-main-win-nvidia
-        /// </summary>
-        /// <example>h265-main-win-nvidia</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("codecId")]
-        public string? CodecId { get; set; }
-
-        /// <summary>
+        /// Video encoder for the output. Defaults to `H265`. See **Supported encoders and profiles** above for the profiles, containers, and limits of each encoder.<br/>
         /// Example: H265
         /// </summary>
         /// <example>H265</example>
@@ -68,7 +89,7 @@ namespace Topaz
         public global::Topaz.OutputInformationVideoVideoEncoder? VideoEncoder { get; set; }
 
         /// <summary>
-        /// __Required if dynamicCompressionLevel is not provided.__ Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second.<br/>
+        /// Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second. Mutually exclusive with `dynamicCompressionLevel`. __Required when `videoEncoder` is `VP9`.__ Each encoder caps this value — see **Supported encoders and profiles** above.<br/>
         /// Example: 1k
         /// </summary>
         /// <example>1k</example>
@@ -76,7 +97,7 @@ namespace Topaz
         public string? VideoBitrate { get; set; }
 
         /// <summary>
-        /// __Required if videoBitrate is not provided.__ Automatic CQP selection.<br/>
+        /// Automatic CQP selection. Mutually exclusive with `videoBitrate`. If neither is provided, this defaults to `High`. Applies to the `AV1`, `H264`, and `H265` encoders only.<br/>
         /// Example: Mid
         /// </summary>
         /// <example>Mid</example>
@@ -85,7 +106,7 @@ namespace Topaz
         public global::Topaz.OutputInformationVideoDynamicCompressionLevel? DynamicCompressionLevel { get; set; }
 
         /// <summary>
-        /// Codec profile specific to videoEncoder. The following are some combinations of available profiles based on the 'videoEncoder' selection &lt;table&gt; &lt;tr&gt; &lt;td&gt;H264&lt;/td&gt; &lt;td&gt;H265&lt;/td&gt; &lt;td&gt;ProRes &lt;td&gt;AV1 &lt;td&gt;VP9 &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;High&lt;/td&gt; &lt;td&gt;Main, Main10&lt;/td&gt; &lt;td&gt;422 Proxy, 422 LT, 422 Std, 422 HQ&lt;/td&gt; &lt;td&gt;8-bit, 10-bit&lt;/td&gt; &lt;td&gt;Good, Best&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;<br/>
+        /// Codec profile, specific to the chosen `videoEncoder`. Defaults to that encoder's default profile (`Main10` for `H265`). See **Supported encoders and profiles** above for the accepted values.<br/>
         /// Example: Main
         /// </summary>
         /// <example>Main</example>
@@ -101,7 +122,7 @@ namespace Topaz
         public bool? CropToFit { get; set; }
 
         /// <summary>
-        /// Desired output container<br/>
+        /// Desired output container. Defaults to `mp4`. Ignored and replaced with `mov` when `videoEncoder` is `ProRes`, and with `mp4` when it is `AV1` or `VP9`.<br/>
         /// Example: mp4
         /// </summary>
         /// <example>mp4</example>
@@ -125,10 +146,6 @@ namespace Topaz
         /// Frame rate<br/>
         /// Example: 30
         /// </param>
-        /// <param name="audioCodec">
-        /// __Required if audioTransfer is Copy or Convert.__<br/>
-        /// Example: AAC
-        /// </param>
         /// <param name="audioTransfer">
         /// Example: Copy
         /// </param>
@@ -136,23 +153,24 @@ namespace Topaz
         /// Audio bitrate, if audioTransfer is Copy or Convert. Default values for the codec are used if not provided.<br/>
         /// Example: 320
         /// </param>
-        /// <param name="codecId">
-        /// Video codec ID, if known. Defaults to videoEncoder.<br/>
-        /// Example: h265-main-win-nvidia
+        /// <param name="audioCodec">
+        /// __Required unless audioTransfer is None.__<br/>
+        /// Example: AAC
         /// </param>
         /// <param name="videoEncoder">
+        /// Video encoder for the output. Defaults to `H265`. See **Supported encoders and profiles** above for the profiles, containers, and limits of each encoder.<br/>
         /// Example: H265
         /// </param>
         /// <param name="videoBitrate">
-        /// __Required if dynamicCompressionLevel is not provided.__ Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second.<br/>
+        /// Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second. Mutually exclusive with `dynamicCompressionLevel`. __Required when `videoEncoder` is `VP9`.__ Each encoder caps this value — see **Supported encoders and profiles** above.<br/>
         /// Example: 1k
         /// </param>
         /// <param name="dynamicCompressionLevel">
-        /// __Required if videoBitrate is not provided.__ Automatic CQP selection.<br/>
+        /// Automatic CQP selection. Mutually exclusive with `videoBitrate`. If neither is provided, this defaults to `High`. Applies to the `AV1`, `H264`, and `H265` encoders only.<br/>
         /// Example: Mid
         /// </param>
         /// <param name="videoProfile">
-        /// Codec profile specific to videoEncoder. The following are some combinations of available profiles based on the 'videoEncoder' selection &lt;table&gt; &lt;tr&gt; &lt;td&gt;H264&lt;/td&gt; &lt;td&gt;H265&lt;/td&gt; &lt;td&gt;ProRes &lt;td&gt;AV1 &lt;td&gt;VP9 &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;High&lt;/td&gt; &lt;td&gt;Main, Main10&lt;/td&gt; &lt;td&gt;422 Proxy, 422 LT, 422 Std, 422 HQ&lt;/td&gt; &lt;td&gt;8-bit, 10-bit&lt;/td&gt; &lt;td&gt;Good, Best&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;<br/>
+        /// Codec profile, specific to the chosen `videoEncoder`. Defaults to that encoder's default profile (`Main10` for `H265`). See **Supported encoders and profiles** above for the accepted values.<br/>
         /// Example: Main
         /// </param>
         /// <param name="cropToFit">
@@ -160,7 +178,7 @@ namespace Topaz
         /// Example: true
         /// </param>
         /// <param name="container">
-        /// Desired output container<br/>
+        /// Desired output container. Defaults to `mp4`. Ignored and replaced with `mov` when `videoEncoder` is `ProRes`, and with `mp4` when it is `AV1` or `VP9`.<br/>
         /// Example: mp4
         /// </param>
 #if NET7_0_OR_GREATER
@@ -169,10 +187,9 @@ namespace Topaz
         public OutputInformationVideo(
             global::Topaz.OutputInformationVideoResolution resolution,
             double frameRate,
-            global::Topaz.OutputInformationVideoAudioCodec audioCodec,
             global::Topaz.OutputInformationVideoAudioTransfer audioTransfer,
             string? audioBitrate,
-            string? codecId,
+            global::Topaz.OutputInformationVideoAudioCodec? audioCodec,
             global::Topaz.OutputInformationVideoVideoEncoder? videoEncoder,
             string? videoBitrate,
             global::Topaz.OutputInformationVideoDynamicCompressionLevel? dynamicCompressionLevel,
@@ -185,7 +202,6 @@ namespace Topaz
             this.AudioBitrate = audioBitrate;
             this.AudioCodec = audioCodec;
             this.AudioTransfer = audioTransfer;
-            this.CodecId = codecId;
             this.VideoEncoder = videoEncoder;
             this.VideoBitrate = videoBitrate;
             this.DynamicCompressionLevel = dynamicCompressionLevel;

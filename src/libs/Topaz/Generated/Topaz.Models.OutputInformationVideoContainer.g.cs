@@ -4,11 +4,15 @@
 namespace Topaz
 {
     /// <summary>
-    /// Desired output container<br/>
+    /// Desired output container. Defaults to `mp4`. Ignored and replaced with `mov` when `videoEncoder` is `ProRes`, and with `mp4` when it is `AV1` or `VP9`.<br/>
     /// Example: mp4
     /// </summary>
     public enum OutputInformationVideoContainer
     {
+        /// <summary>
+        ///
+        /// </summary>
+        Avi,
         /// <summary>
         ///
         /// </summary>
@@ -21,6 +25,10 @@ namespace Topaz
         ///
         /// </summary>
         Mp4,
+        /// <summary>
+        ///
+        /// </summary>
+        Webm,
     }
 
     /// <summary>
@@ -35,9 +43,11 @@ namespace Topaz
         {
             return value switch
             {
+                OutputInformationVideoContainer.Avi => "avi",
                 OutputInformationVideoContainer.Mkv => "mkv",
                 OutputInformationVideoContainer.Mov => "mov",
                 OutputInformationVideoContainer.Mp4 => "mp4",
+                OutputInformationVideoContainer.Webm => "webm",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,9 +58,11 @@ namespace Topaz
         {
             return value switch
             {
+                "avi" => OutputInformationVideoContainer.Avi,
                 "mkv" => OutputInformationVideoContainer.Mkv,
                 "mov" => OutputInformationVideoContainer.Mov,
                 "mp4" => OutputInformationVideoContainer.Mp4,
+                "webm" => OutputInformationVideoContainer.Webm,
                 _ => null,
             };
         }

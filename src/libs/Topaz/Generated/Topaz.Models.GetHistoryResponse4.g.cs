@@ -9,11 +9,19 @@ namespace Topaz
     public sealed partial class GetHistoryResponse4
     {
         /// <summary>
-        /// Example: Internal server error
+        /// Example: Forbidden
         /// </summary>
-        /// <example>Internal server error</example>
+        /// <example>Forbidden</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }
+
+        /// <summary>
+        /// Example: FORBIDDEN
+        /// </summary>
+        /// <example>FORBIDDEN</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode3JsonConverter))]
+        public global::Topaz.GetHistoryResponseErrorCode3? ErrorCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,15 +33,20 @@ namespace Topaz
         /// Initializes a new instance of the <see cref="GetHistoryResponse4" /> class.
         /// </summary>
         /// <param name="message">
-        /// Example: Internal server error
+        /// Example: Forbidden
+        /// </param>
+        /// <param name="errorCode">
+        /// Example: FORBIDDEN
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetHistoryResponse4(
-            string? message)
+            string? message,
+            global::Topaz.GetHistoryResponseErrorCode3? errorCode)
         {
             this.Message = message;
+            this.ErrorCode = errorCode;
         }
 
         /// <summary>

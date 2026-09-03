@@ -4,7 +4,8 @@
 namespace Topaz
 {
     /// <summary>
-    /// Signed download URL to the enhanced video file.
+    /// Signed download URL to the enhanced video file.<br/>
+    /// The URL is generated once and then reused for the lifetime of the request — subsequent calls return the same `url`, `expiresIn` and `expiresAt` rather than a freshly signed URL.
     /// </summary>
     public sealed partial class EnhancedDownloadSignedUrlResponse
     {
@@ -16,10 +17,10 @@ namespace Topaz
         public string? Url { get; set; }
 
         /// <summary>
-        /// TTL in milliseconds<br/>
-        /// Example: 86400000
+        /// TTL in milliseconds. Defaults to 7 days.<br/>
+        /// Example: 604800000
         /// </summary>
-        /// <example>86400000</example>
+        /// <example>604800000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("expiresIn")]
         public int? ExpiresIn { get; set; }
 
@@ -44,8 +45,8 @@ namespace Topaz
         /// Example: https://videocloud.r2.cloudflarestorage.com/0193893a-a2ba-799e-b258-928f02c0f419/enhanced.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256...x-id=GetObject
         /// </param>
         /// <param name="expiresIn">
-        /// TTL in milliseconds<br/>
-        /// Example: 86400000
+        /// TTL in milliseconds. Defaults to 7 days.<br/>
+        /// Example: 604800000
         /// </param>
         /// <param name="expiresAt">
         /// Time in milliseconds since UTC epoch<br/>

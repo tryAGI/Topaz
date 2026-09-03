@@ -9,7 +9,7 @@ namespace Topaz
     public sealed partial class CreateExpressVideoRequestRequestSource
     {
         /// <summary>
-        /// The container format of the video file<br/>
+        /// The container format of the video file. Matched case-insensitively.<br/>
         /// Example: mp4
         /// </summary>
         /// <example>mp4</example>
@@ -27,7 +27,10 @@ namespace Topaz
         public string? Md5Hash { get; set; }
 
         /// <summary>
-        ///
+        /// External storage configuration for source or destination files. `provider` is required.<br/>
+        /// Provide either `presignedUrl` alone, or all three of `awsCredentials`, `bucketName`, and `key` together for AWS STS AssumeRole-based access.<br/>
+        /// For destinations only, you may instead provide `multipart` with your own pre-signed multi-part upload URLs.<br/>
+        /// Source access is verified when the request is created: the presigned URL is fetched, or the object is read using the assumed role. A failure here returns a 400.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external")]
         public global::Topaz.ExternalStorage? External { get; set; }
@@ -42,14 +45,19 @@ namespace Topaz
         /// Initializes a new instance of the <see cref="CreateExpressVideoRequestRequestSource" /> class.
         /// </summary>
         /// <param name="container">
-        /// The container format of the video file<br/>
+        /// The container format of the video file. Matched case-insensitively.<br/>
         /// Example: mp4
         /// </param>
         /// <param name="md5Hash">
         /// MD5 hash of the source video file in hex<br/>
         /// Example: 5d41402abc4b2a76b9719d911017c592
         /// </param>
-        /// <param name="external"></param>
+        /// <param name="external">
+        /// External storage configuration for source or destination files. `provider` is required.<br/>
+        /// Provide either `presignedUrl` alone, or all three of `awsCredentials`, `bucketName`, and `key` together for AWS STS AssumeRole-based access.<br/>
+        /// For destinations only, you may instead provide `multipart` with your own pre-signed multi-part upload URLs.<br/>
+        /// Source access is verified when the request is created: the presigned URL is fetched, or the object is read using the assumed role. A failure here returns a 400.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

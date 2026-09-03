@@ -9,7 +9,7 @@ namespace Topaz
     public sealed partial class CreateVideoRequestRequestSource
     {
         /// <summary>
-        /// The container format of the video file<br/>
+        /// The container format of the video file. Matched case-insensitively.<br/>
         /// Example: mp4
         /// </summary>
         /// <example>mp4</example>
@@ -19,7 +19,7 @@ namespace Topaz
         public required global::Topaz.CreateVideoRequestRequestSourceContainer Container { get; set; }
 
         /// <summary>
-        /// Size of the video file in bytes<br/>
+        /// Size of the video file in bytes. Must be under 100 GB.<br/>
         /// Example: 123456000
         /// </summary>
         /// <example>123456000</example>
@@ -62,7 +62,10 @@ namespace Topaz
         public required global::Topaz.CreateVideoRequestRequestSourceResolution Resolution { get; set; }
 
         /// <summary>
-        ///
+        /// External storage configuration for source or destination files. `provider` is required.<br/>
+        /// Provide either `presignedUrl` alone, or all three of `awsCredentials`, `bucketName`, and `key` together for AWS STS AssumeRole-based access.<br/>
+        /// For destinations only, you may instead provide `multipart` with your own pre-signed multi-part upload URLs.<br/>
+        /// Source access is verified when the request is created: the presigned URL is fetched, or the object is read using the assumed role. A failure here returns a 400.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external")]
         public global::Topaz.ExternalStorage? External { get; set; }
@@ -77,11 +80,11 @@ namespace Topaz
         /// Initializes a new instance of the <see cref="CreateVideoRequestRequestSource" /> class.
         /// </summary>
         /// <param name="container">
-        /// The container format of the video file<br/>
+        /// The container format of the video file. Matched case-insensitively.<br/>
         /// Example: mp4
         /// </param>
         /// <param name="size">
-        /// Size of the video file in bytes<br/>
+        /// Size of the video file in bytes. Must be under 100 GB.<br/>
         /// Example: 123456000
         /// </param>
         /// <param name="duration">
@@ -99,7 +102,12 @@ namespace Topaz
         /// <param name="resolution">
         /// Resolution details of the video
         /// </param>
-        /// <param name="external"></param>
+        /// <param name="external">
+        /// External storage configuration for source or destination files. `provider` is required.<br/>
+        /// Provide either `presignedUrl` alone, or all three of `awsCredentials`, `bucketName`, and `key` together for AWS STS AssumeRole-based access.<br/>
+        /// For destinations only, you may instead provide `multipart` with your own pre-signed multi-part upload URLs.<br/>
+        /// Source access is verified when the request is created: the presigned URL is fetched, or the object is read using the assumed role. A failure here returns a 400.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

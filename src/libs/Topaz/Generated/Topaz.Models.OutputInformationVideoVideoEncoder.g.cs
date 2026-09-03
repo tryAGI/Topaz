@@ -4,6 +4,7 @@
 namespace Topaz
 {
     /// <summary>
+    /// Video encoder for the output. Defaults to `H265`. See **Supported encoders and profiles** above for the profiles, containers, and limits of each encoder.<br/>
     /// Example: H265
     /// </summary>
     public enum OutputInformationVideoVideoEncoder
@@ -20,6 +21,10 @@ namespace Topaz
         ///
         /// </summary>
         H265,
+        /// <summary>
+        ///
+        /// </summary>
+        ProRes,
         /// <summary>
         ///
         /// </summary>
@@ -41,6 +46,7 @@ namespace Topaz
                 OutputInformationVideoVideoEncoder.Av1 => "AV1",
                 OutputInformationVideoVideoEncoder.H264 => "H264",
                 OutputInformationVideoVideoEncoder.H265 => "H265",
+                OutputInformationVideoVideoEncoder.ProRes => "ProRes",
                 OutputInformationVideoVideoEncoder.Vp9 => "VP9",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -55,6 +61,7 @@ namespace Topaz
                 "AV1" => OutputInformationVideoVideoEncoder.Av1,
                 "H264" => OutputInformationVideoVideoEncoder.H264,
                 "H265" => OutputInformationVideoVideoEncoder.H265,
+                "ProRes" => OutputInformationVideoVideoEncoder.ProRes,
                 "VP9" => OutputInformationVideoVideoEncoder.Vp9,
                 _ => null,
             };
