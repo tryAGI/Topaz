@@ -26,10 +26,12 @@ namespace Topaz
             {                s_GetHistorySecurityRequirement0,
             };
         partial void PrepareGetHistoryArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? cursor);
         partial void PrepareGetHistoryRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? cursor);
         partial void ProcessGetHistoryResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,16 +43,20 @@ namespace Topaz
 
         /// <summary>
         /// Get My Request History<br/>
-        /// This endpoint will return your processing history.
+        /// This endpoint will return your processing history, newest first, up to 50 requests per page. Requests that have not been accepted yet (status `requested`) are omitted — fetch those individually with `GET /video/{requestId}`.<br/>
+        /// A page may contain fewer than 50 requests even when more are available, so keep following `nextCursor` until it comes back `null`.
         /// </summary>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Topaz.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Topaz.GetHistoryResponse> GetHistoryAsync(
+            string? cursor = default,
             global::Topaz.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetHistoryAsResponseAsync(
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -59,19 +65,23 @@ namespace Topaz
         }
         /// <summary>
         /// Get My Request History<br/>
-        /// This endpoint will return your processing history.
+        /// This endpoint will return your processing history, newest first, up to 50 requests per page. Requests that have not been accepted yet (status `requested`) are omitted — fetch those individually with `GET /video/{requestId}`.<br/>
+        /// A page may contain fewer than 50 requests even when more are available, so keep following `nextCursor` until it comes back `null`.
         /// </summary>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Topaz.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Topaz.AutoSDKHttpResponse<global::Topaz.GetHistoryResponse>> GetHistoryAsResponseAsync(
+            string? cursor = default,
             global::Topaz.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetHistoryArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                cursor: ref cursor);
 
 
             var __authorizations = global::Topaz.EndPointSecurityResolver.ResolveAuthorizations(
@@ -99,6 +109,9 @@ namespace Topaz
                             var __pathBuilder = new global::Topaz.PathBuilder(
                                 path: "/video/history",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("cursor", cursor)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Topaz.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,7 +151,8 @@ namespace Topaz
                     request: __httpRequest);
                 PrepareGetHistoryRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -317,24 +331,61 @@ namespace Topaz
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Bad request
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                global::Topaz.GetHistoryResponse2? __value_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = global::Topaz.GetHistoryResponse2.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_400 = global::Topaz.GetHistoryResponse2.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse2>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Unauthorized
                             if ((int)__response.StatusCode == 401)
                             {
                                 string? __content_401 = null;
                                 global::System.Exception? __exception_401 = null;
-                                global::Topaz.GetHistoryResponse2? __value_401 = null;
+                                global::Topaz.GetHistoryResponse3? __value_401 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_401 = global::Topaz.GetHistoryResponse2.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = global::Topaz.GetHistoryResponse3.FromJson(__content_401, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_401 = global::Topaz.GetHistoryResponse2.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = global::Topaz.GetHistoryResponse3.FromJson(__content_401, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -343,7 +394,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse2>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse3>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_401,
@@ -359,19 +410,19 @@ namespace Topaz
                             {
                                 string? __content_403 = null;
                                 global::System.Exception? __exception_403 = null;
-                                global::Topaz.GetHistoryResponse3? __value_403 = null;
+                                global::Topaz.GetHistoryResponse4? __value_403 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::Topaz.GetHistoryResponse3.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.GetHistoryResponse4.FromJson(__content_403, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_403 = global::Topaz.GetHistoryResponse3.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.GetHistoryResponse4.FromJson(__content_403, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -380,7 +431,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse3>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse4>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
@@ -396,19 +447,19 @@ namespace Topaz
                             {
                                 string? __content_500 = null;
                                 global::System.Exception? __exception_500 = null;
-                                global::Topaz.GetHistoryResponse4? __value_500 = null;
+                                global::Topaz.GetHistoryResponse5? __value_500 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Topaz.GetHistoryResponse4.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.GetHistoryResponse5.FromJson(__content_500, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Topaz.GetHistoryResponse4.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.GetHistoryResponse5.FromJson(__content_500, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -417,7 +468,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse4>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetHistoryResponse5>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,

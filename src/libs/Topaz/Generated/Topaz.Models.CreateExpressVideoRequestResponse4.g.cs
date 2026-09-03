@@ -16,6 +16,14 @@ namespace Topaz
         public string? Message { get; set; }
 
         /// <summary>
+        /// Example: SERVER_MAINTENANCE
+        /// </summary>
+        /// <example>SERVER_MAINTENANCE</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.CreateExpressVideoRequestResponseErrorCode4JsonConverter))]
+        public global::Topaz.CreateExpressVideoRequestResponseErrorCode4? ErrorCode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +35,18 @@ namespace Topaz
         /// <param name="message">
         /// Example: Service unavailable
         /// </param>
+        /// <param name="errorCode">
+        /// Example: SERVER_MAINTENANCE
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateExpressVideoRequestResponse4(
-            string? message)
+            string? message,
+            global::Topaz.CreateExpressVideoRequestResponseErrorCode4? errorCode)
         {
             this.Message = message;
+            this.ErrorCode = errorCode;
         }
 
         /// <summary>

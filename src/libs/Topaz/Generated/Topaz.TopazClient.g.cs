@@ -66,6 +66,15 @@ namespace Topaz
         };
 
         /// <summary>
+        /// This section allows you to preview the credit outcome of canceling a request.
+        /// </summary>
+        public CancelEstimateClient CancelEstimate => new CancelEstimateClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
         /// This section allows you to cancel a request.
         /// </summary>
         public CancelRequestClient CancelRequest => new CancelRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
@@ -154,6 +163,15 @@ namespace Topaz
         /// Our estimates will allow you to predict the amount of time required and the number of credits that would be consumed in order to run a set of enhancements on a given image with certain input parameters.
         /// </summary>
         public EstimateClient Estimate => new EstimateClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
+        /// This section allows you to get the full record of a request.
+        /// </summary>
+        public GetRequestClient GetRequest => new GetRequestClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContextProvider = JsonSerializerContextProvider,

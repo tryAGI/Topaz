@@ -4,7 +4,7 @@
 namespace Topaz
 {
     /// <summary>
-    /// __Required if audioTransfer is Copy or Convert.__<br/>
+    /// __Required unless audioTransfer is None.__<br/>
     /// Example: AAC
     /// </summary>
     public enum OutputInformationVideoAudioCodec

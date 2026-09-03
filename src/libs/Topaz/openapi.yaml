@@ -86,8 +86,16 @@ tags:
   description: 'This section allows you to cancel a request
 
     '
+- name: Cancel Estimate
+  description: 'This section allows you to preview the credit outcome of canceling a request
+
+    '
 - name: Delete Files
   description: 'This section allows you to delete your source and enhanced files
+
+    '
+- name: Get Request
+  description: 'This section allows you to get the full record of a request
 
     '
 - name: Get Request Status
@@ -1294,7 +1302,18 @@ paths:
 
         | **supportedModels**     | Array    | List of supported AI models in their shortened format (apo-8 for Apollo v8) |
 
+        | **isFrameInterpolationSupported** | Boolean | Whether frame interpolation models are currently accepted |
+
+
+        This endpoint is public and does not require an API key.
+
+
+        `supportedModels` is the authoritative list of models the system currently accepts. It may include
+
+        models beyond those enumerated in the filter schemas of this document.
+
         '
+      security: []
       responses:
         '200':
           description: Successful response
@@ -1330,6 +1349,10 @@ paths:
 
 
         Time estimates are in development and may not be accurate.
+
+
+        Output encoder settings are validated on this endpoint — the accepted `videoEncoder` / `videoProfile` combinations, along with the container, resolution, and bitrate limits of each, are listed under
+        **Supported encoders and profiles** in **OutputInformationVideo**.
 
 
         ## Response body
@@ -1396,6 +1419,8 @@ paths:
           $ref: '#/components/responses/VideoBadRequest'
         '401':
           $ref: '#/components/responses/VideoUnauthorized'
+        '413':
+          $ref: '#/components/responses/RequestEntityTooLarge'
         '500':
           $ref: '#/components/responses/VideoInternalServerError'
         '503':
@@ -1412,25 +1437,39 @@ paths:
         This endpoint skips the need to gather video information and uses a single-URL upload rather than multi-part upload. Calling the accept and complete-upload endpoints are also no longer necessary.
 
 
-        This endpoint does not return the cost estimates. Once the system receives and analyzes the source video file, cost estimates will appear in the response of the status endpoint. The lower bound
-        value will be billed.
+        Cost estimates are returned only when they can be calculated at request time; otherwise they are omitted and appear later in the response of the status endpoint, once the system receives and analyzes
+        the source video file. The lower bound value is billed.
 
 
         The endpoint returns a direct upload URL to our cloud storage for you to HTTP PUT the video file to.
 
 
+        If `source.external` is provided, the system fetches the source itself: no `uploadId` or `uploadUrls` are returned, credits are reserved immediately, and processing begins right away.
+
+
+        Image sequence containers are not supported by this endpoint.
+
+
+        `source.container`, at least one entry in `filters`, and `output.resolution` are the only required fields on this endpoint. The remaining output fields are filled with defaults when omitted — `videoEncoder`
+        `H265` with `videoProfile` `Main10`, `container` `mp4`, `audioTransfer` `None`, and `dynamicCompressionLevel` `High` unless `videoBitrate` is set. Two exceptions still apply: `output.audioCodec`
+        is required whenever `output.audioTransfer` is `Copy` or `Convert`, and `output.frameRate` is required when a frame interpolation filter omits its own `fps`. See **OutputInformationVideo**, which
+        also lists the accepted `videoEncoder` / `videoProfile` combinations and the container, resolution, and bitrate limits of each.
+
+
         ## Response body
 
 
-        | **Property**   | **Type** | **Description**            |
+        | **Property**   | **Type** | **Description**                                                  |
 
-        |----------------|----------|----------------------------|
+        |----------------|----------|------------------------------------------------------------------|
 
-        | **requestId**  | UUID     | Unique request identifier  |
+        | **requestId**  | UUID     | Unique request identifier                                        |
 
-        | **uploadId**   | String   | Upload identifier          |
+        | **uploadId**   | String   | Upload identifier. Absent when `source.external` is used.         |
 
-        | **uploadUrls** | Array    | URL(s) for uploading video |
+        | **uploadUrls** | Array    | URL(s) for uploading video. Absent when `source.external` is used. |
+
+        | **estimates**  | Object   | Refer to **RequestEstimates**. Absent when not yet calculable.     |
 
         '
       security:
@@ -1457,6 +1496,8 @@ paths:
           $ref: '#/components/responses/VideoBadRequest'
         '401':
           $ref: '#/components/responses/VideoUnauthorized'
+        '413':
+          $ref: '#/components/responses/RequestEntityTooLarge'
         '500':
           $ref: '#/components/responses/VideoInternalServerError'
         '503':
@@ -1467,28 +1508,40 @@ paths:
       - Accept Request
       summary: Accept and Upload Video Request
       operationId: AcceptVideoRequest
-      description: 'Calling this endpoint reserves the estimated credits and returns signed URL(s) for **multi-part upload**.
+      description: 'Calling this endpoint reserves the estimated credits and returns signed upload URL(s).
 
 
         ### Video uploads
 
-        The Video API uses multi-part upload to receive the video file for processing. You can use a simple byte-division function to create segments for the API to receive.
+        A **single** upload URL is returned when `source.size` is at or under **500 MB**, or when `source.frameCount` is 1,000 or fewer. PUT the whole file to `urls[0]`; there are no part numbers or ETags
+        to collect in that case.
 
 
-        For example, if you have a 900MB video file and the system returns 3 upload URLs. You would then:
+        Every larger source uses multi-part upload. The number of URLs returned is `source.size` divided by the **500 MB** segment size, rounded up — always at least 2 on this path — and capped at 150 URLs.
+        Split the file into `max(500 MB, ceil(source.size / urls.length))`-byte segments and PUT them in order, one per URL: that is a plain 500 MB byte division for anything up to 75 GB, and larger segments
+        for the sources above it where the 150-URL cap binds.
 
 
-        - Upload bytes 0-300,000,000 via HTTP PUT to `urls[0]`
+        For example, a 1.2 GB video file returns 3 upload URLs, so 500 MB segments cover it exactly:
 
-        - Upload bytes 300,000,001-600,000,000 via HTTP PUT to `urls[1]`
 
-        - Upload bytes 600,000,001-900,000,000 via HTTP PUT to `urls[2]`
+        - Upload bytes 0-499,999,999 via HTTP PUT to `urls[0]`
+
+        - Upload bytes 500,000,000-999,999,999 via HTTP PUT to `urls[1]`
+
+        - Upload bytes 1,000,000,000-1,199,999,999 via HTTP PUT to `urls[2]`
 
 
         If one of the uploads fail, you may reuse the same URL to retry - the action overwrites any partially uploaded data.
 
 
         A successful response from the PUT request returns an `ETag` value in the header for each segment. Retain the part number and ETag pair for the next step (PATCH /video/{requestId}/complete-upload/).
+
+
+        If the request was created with `source.external`, there is nothing to upload: this endpoint reserves credits, starts processing, and returns `202` with a `message` instead of upload URLs.
+
+
+        Calling this endpoint again after the URLs have been issued returns the same `uploadId` and `urls`.
 
 
         ## Response body
@@ -1498,9 +1551,11 @@ paths:
 
         |---------------|------------|-----------------------------------------------------|
 
-        | **uploadId**  | String     | Upload ID for multi-part upload                     |
+        | **uploadId**  | String     | Upload ID for completing the upload                 |
 
-        | **urls**      | Array      | URLs for multi-part uploads                         |
+        | **urls**      | Array      | Upload URLs                                         |
+
+        | **message**   | String     | Returned instead of the above when `source.external` was used |
 
         '
       security:
@@ -1541,10 +1596,11 @@ paths:
       summary: Complete Video Upload
       operationId: CompleteVideoUpload
       description: "Send metadata of the multi-part uploads to complete the upload and begin processing the video.\n\nOptionally include the MD5 hash of the source video file to validate successful upload\
-        \ before processing.\n\n## Request body\n\n| **Property**    | **Type**         | **Description**                                                                                         |\n|-----------------|------------------|---------------------------------------------------------------------------------------------------------|\n\
-        | **uploadResults**           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |\n| **uploadResults.*.partNum** | Integer\
-        \ | Part number of the uploaded part, starting from 1                                                      |\n| **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the\
-        \ part   \n"
+        \ before processing.\n\nIf the accept endpoint returned a single upload URL, the contents of `uploadResults` are not used — the field is still required by request validation, so send a single placeholder\
+        \ entry such as `[{\"partNum\": 1, \"eTag\": \"unused\"}]`.\n\n## Request body\n\n| **Property**    | **Type**         | **Description**                                                         \
+        \                                |\n|-----------------|------------------|---------------------------------------------------------------------------------------------------------|\n| **uploadResults**\
+        \           | Array   | An array of part number and ETag pairs of the uploaded parts. ETags are returned by S3 upon upload of the part. |\n| **uploadResults.*.partNum** | Integer | Part number of\
+        \ the uploaded part, starting from 1                                                      |\n| **uploadResults.*.eTag**    | String  | eTag value returned by S3 upon upload of the part   \n"
       security:
       - apiKey: []
       parameters:
@@ -1579,6 +1635,50 @@ paths:
         '500':
           $ref: '#/components/responses/VideoInternalServerError'
   /video/{requestId}:
+    get:
+      tags:
+      - Get Request
+      summary: Get Video Request
+      operationId: GetVideoRequest
+      description: 'Retrieve the full record of a single request, in the same shape as the entries returned by `GET /video/history`.
+
+
+        Use this endpoint when you need the details of the request itself — the `filters` and `output` you submitted, the corrected source metrics, the credit transactions, and the signed download URLs.
+        For progress polling, use `GET /video/{requestId}/status` instead: it reports `progress`, live processing statistics, and upload URLs, none of which are returned here.
+
+
+        The `source` metrics start as the values you supplied and are corrected once the system analyzes the file. `estimates` holds the initial cost and time estimate and is absent until the request has
+        been costed — express requests are costed after the source has been received and analyzed.
+
+
+        Unlike `GET /video/history`, this endpoint also returns requests that are still in the `requested` state.
+
+        '
+      security:
+      - apiKey: []
+      parameters:
+      - in: path
+        name: requestId
+        schema:
+          type: string
+          format: uuid
+          example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoRequestRecord'
+        '401':
+          $ref: '#/components/responses/VideoUnauthorized'
+        '403':
+          $ref: '#/components/responses/VideoForbidden'
+        '404':
+          $ref: '#/components/responses/VideoNotFound'
+        '500':
+          $ref: '#/components/responses/VideoInternalServerError'
     delete:
       tags:
       - Cancel Request
@@ -1617,6 +1717,79 @@ paths:
                     example: Cancellation in progress. Partial credits have been refunded.
         '204':
           description: Successful response, already canceled or in progress
+        '400':
+          $ref: '#/components/responses/VideoBadRequest'
+        '401':
+          $ref: '#/components/responses/VideoUnauthorized'
+        '403':
+          $ref: '#/components/responses/VideoForbidden'
+        '404':
+          $ref: '#/components/responses/VideoNotFound'
+        '500':
+          $ref: '#/components/responses/VideoInternalServerError'
+  /video/{requestId}/cancel-estimate:
+    get:
+      tags:
+      - Cancel Estimate
+      summary: Estimate Cancellation Outcome
+      operationId: GetCancelEstimate
+      description: 'Preview the credit outcome of canceling a request without actually canceling it.
+
+
+        This uses the same settlement math as the cancel endpoint (DELETE /video/{requestId}), so the estimate reflects what you would be charged and refunded if you cancel now.
+
+
+        - If the request has not started processing, canceling refunds all reserved credits and charges nothing.
+
+        - If the request is partially processed, canceling commits a prorated amount (plus a small cancellation penalty) and refunds the remainder.
+
+        - If the request is already canceling or canceled, it is reported as not cancelable with a zeroed estimate.
+
+
+        Requests that have already completed or failed cannot be canceled and return a 400.
+
+
+        ## Response body
+
+
+        | **Property**        | **Type** | **Description**                                              |
+
+        |---------------------|----------|-------------------------------------------------------------|
+
+        | **requestId**       | UUID     | Unique request identifier                                   |
+
+        | **status**          | String   | Current processing status                                   |
+
+        | **cancelable**      | Boolean  | Whether the request can still be canceled                   |
+
+        | **progress**        | Integer  | Processing progress used for settlement (percentage, 0-100) |
+
+        | **creditsReserved** | Integer  | Credits currently reserved for the request                  |
+
+        | **creditsToCommit** | Integer  | Credits that would be charged if canceled now               |
+
+        | **creditsToRefund** | Integer  | Credits that would be refunded if canceled now              |
+
+        | **message**         | String   | Human-readable summary of the cancellation outcome          |
+
+        '
+      security:
+      - apiKey: []
+      parameters:
+      - in: path
+        name: requestId
+        schema:
+          type: string
+          format: uuid
+          example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelEstimateResponse'
         '400':
           $ref: '#/components/responses/VideoBadRequest'
         '401':
@@ -1674,8 +1847,8 @@ paths:
         If processing is complete, the response will include a signed URL to access the enhanced video.
 
 
-        Make sure to download and save the video within the TTL provided in the response (24 hours by default). New URLs with new TTL can be generated by calling this endpoint, but we retain your data for
-        only a limited number of days. The video will be permanently deleted from our system afterwards.
+        Make sure to download and save the video within the TTL provided in the response (7 days by default). The signed URL is generated once and then reused: calling this endpoint again returns the same
+        URL and the same expiry rather than issuing a fresh one. We retain your data for only a limited number of days, after which the video is permanently deleted from our system.
 
 
         ## Response body
@@ -1687,9 +1860,17 @@ paths:
 
         | **status**           | String   | Current processing status                          |
 
+        | **message**          | String   | Human-readable status message                      |
+
+        | **errorCode**        | String   | Failure code from the processing pipeline, present only when status is failed |
+
         | **progress**         | Number   | Total request progress (percentage)                |
 
         | **estimates**        | Object   | Refer to **RequestEstimates**                      |
+
+        | **uploadId**         | String   | Present while the request is awaiting source upload |
+
+        | **urls**             | Array    | Outstanding upload URLs, present while the request is awaiting source upload |
 
         | **outputSize**       | String   | Size of output video                               |
 
@@ -1700,6 +1881,11 @@ paths:
         | **processingJobs**   | Array    | Refer to **VideoProcessingStatIntermediate** below   |
 
         | **download**         | Object   | Refer to **EnhancedDownloadSignedUrlResponse** below |
+
+        | **comparisonTool**   | String   | URL to a before/after comparison view, present only for free renders |
+
+
+        `outputSize`, `averageFps`, `combinedFps` and `processingJobs` are reported for chunked enhancement requests. They are absent for requests handled end-to-end by the inference backend.
 
 
         ---
@@ -1738,13 +1924,13 @@ paths:
 
         | **status**           | String   | Status (queued, processing, complete, etc.)        |
 
-        | **gpuUtilization**   | Integer  | GPU utilization in percentage                      |
-
-        | **gpuMemoryUtilization** | Integer | GPU memory usage percentage                     |
-
-        | **fps**              | Number   | Processing speed of the node                       |
-
         | **progress**         | Number   | Processing progress (percentage)                   |
+
+        | **averageFps**       | Number   | Processing speed of the node                       |
+
+        | **averageGpuUtilization** | Number | GPU utilization in percentage                    |
+
+        | **averageGpuMemoryUtilization** | Number | GPU memory usage percentage                |
 
 
         ---
@@ -1798,6 +1984,10 @@ paths:
       description: 'Get metrics for the request
 
 
+        Metrics are derived from chunked enhancement processing. For requests handled end-to-end by the inference backend, and for requests that have not begun processing, this endpoint returns `200` with
+        only a `message` field indicating that metrics are unavailable.
+
+
         ## Response body
 
 
@@ -1846,6 +2036,12 @@ paths:
 
         | **tasks.*.minutesProcessing** | Number    | Duration of processing in minutes       |
 
+        | **tasks.*.averageFps**        | Number    | Average processing speed of the node    |
+
+        | **tasks.*.averageGpuUtilization** | Number | GPU utilization in percentage          |
+
+        | **tasks.*.averageGpuMemoryUtilization** | Number | GPU memory usage percentage      |
+
         | **tasks.*.inputFrames**       | Integer   | Number of input frames                  |
 
         | **tasks.*.outputFrames**      | Integer   | Number of output frames                 |
@@ -1886,9 +2082,21 @@ paths:
       - Get Request History
       summary: Get My Request History
       operationId: GetHistory
-      description: 'This endpoint will return your processing history.
+      description: 'This endpoint will return your processing history, newest first, up to 50 requests per page. Requests that have not been accepted yet (status `requested`) are omitted — fetch those individually
+        with `GET /video/{requestId}`.
+
+
+        A page may contain fewer than 50 requests even when more are available, so keep following `nextCursor` until it comes back `null`.
 
         '
+      parameters:
+      - name: cursor
+        in: query
+        required: false
+        description: Base64url-encoded cursor for pagination. Use the `nextCursor` value from a previous response to fetch the next page.
+        schema:
+          type: string
+          format: base64url
       responses:
         '200':
           description: Successful response
@@ -1900,7 +2108,14 @@ paths:
                   result:
                     type: array
                     items:
-                      $ref: '#/components/schemas/HistoryResponse'
+                      $ref: '#/components/schemas/VideoRequestRecord'
+                  nextCursor:
+                    type: string
+                    format: base64url
+                    nullable: true
+                    description: Cursor to pass as the `cursor` query parameter to fetch the next page. `null` when there are no more results.
+        '400':
+          $ref: '#/components/responses/VideoBadRequest'
         '401':
           $ref: '#/components/responses/VideoUnauthorized'
         '403':
@@ -3020,6 +3235,51 @@ components:
           type: string
           description: The endpoint will return message only if the video will be sourced from an external storage provider
           example: Accepted
+    CancelEstimateResponse:
+      type: object
+      description: Preview of the credit settlement that would occur if the request is canceled now.
+      properties:
+        requestId:
+          type: string
+          format: uuid
+          example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
+        status:
+          type: string
+          enum:
+          - requested
+          - accepted
+          - initializing
+          - preprocessing
+          - processing
+          - postprocessing
+          - complete
+          - canceling
+          - canceled
+          - failed
+          example: processing
+        cancelable:
+          type: boolean
+          description: False if the request is already canceling or canceled
+          example: true
+        progress:
+          type: integer
+          description: Processing progress used for settlement, as a percentage (0-100)
+          example: 50
+        creditsReserved:
+          type: integer
+          description: Credits currently reserved for the request
+          example: 12
+        creditsToCommit:
+          type: integer
+          description: Credits that would be charged for work completed so far
+          example: 7
+        creditsToRefund:
+          type: integer
+          description: Credits that would be refunded
+          example: 5
+        message:
+          type: string
+          example: Canceling now will charge approximately 7 credit(s) for work completed so far; 5 credit(s) would be refunded.
     ChunkMetrics:
       type: object
       properties:
@@ -3036,6 +3296,18 @@ components:
               minutesProcessing:
                 type: number
                 example: 12.3
+              averageFps:
+                type: number
+                description: Average processing speed of the node
+                example: 2.34
+              averageGpuUtilization:
+                type: number
+                description: In percentage
+                example: 56
+              averageGpuMemoryUtilization:
+                type: number
+                description: In percentage
+                example: 65
               inputFrames:
                 type: integer
                 example: 320
@@ -3066,15 +3338,18 @@ components:
           example: c1f96dc2-c448-00e6-82ed-14ecb6403c62
         uploadId:
           type: string
-          description: Upload ID for completing multi-part upload
+          description: Upload ID for completing the upload. Absent when `source.external` was provided.
           example: GDlWC7qIaE6okS41Xf/ktpuS5XzTRabg
         uploadUrls:
           type: array
-          description: URL to PUT the parts to
+          description: URL to PUT the source video to. Absent when `source.external` was provided.
           items:
             type: string
           example:
           - https://videocloud.s3.amazonaws.com/0193893a-a2ba-799e-b258-928f02c0f419/source.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256...x-id=PutObject
+        estimates:
+          description: Present only when cost estimates could be calculated at request time. Otherwise they appear later in the status endpoint response.
+          $ref: '#/components/schemas/RequestEstimates'
     CredentialsS3:
       type: object
       required:
@@ -3089,28 +3364,54 @@ components:
           type: string
           description: Kind of like a secret string for extra layer of security
           example: MSTnuGztXtTU25XKjVfMJCsujv6VtAGtv1TGSjtOL6M=
+        duration:
+          type: integer
+          minimum: 1
+          description: Lifetime of the assumed-role session, in seconds. Defaults to the AWS default when omitted.
+          example: 3600
     EnhancedDownloadSignedUrlResponse:
       type: object
-      description: Signed download URL to the enhanced video file.
+      description: 'Signed download URL to the enhanced video file.
+
+
+        The URL is generated once and then reused for the lifetime of the request — subsequent calls return the same `url`, `expiresIn` and `expiresAt` rather than a freshly signed URL.
+
+        '
       properties:
         url:
           type: string
           example: https://videocloud.r2.cloudflarestorage.com/0193893a-a2ba-799e-b258-928f02c0f419/enhanced.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256...x-id=GetObject
         expiresIn:
           type: integer
-          description: TTL in milliseconds
-          example: 86400000
+          description: TTL in milliseconds. Defaults to 7 days.
+          example: 604800000
         expiresAt:
           type: integer
           description: Time in milliseconds since UTC epoch
           example: 1727213400000
     ExternalStorage:
       type: object
+      description: 'External storage configuration for source or destination files. `provider` is required.
+
+        Provide either `presignedUrl` alone, or all three of `awsCredentials`, `bucketName`, and `key` together for AWS STS AssumeRole-based access.
+
+        For destinations only, you may instead provide `multipart` with your own pre-signed multi-part upload URLs.
+
+
+        Source access is verified when the request is created: the presigned URL is fetched, or the object is read using the assumed role. A failure here returns a 400.
+
+        '
       required:
       - provider
-      - credentials
-      - bucketName
-      - key
+      oneOf:
+      - required:
+        - presignedUrl
+      - required:
+        - awsCredentials
+        - bucketName
+        - key
+      - required:
+        - multipart
       properties:
         provider:
           type: string
@@ -3119,22 +3420,40 @@ components:
           example: s3
         presignedUrl:
           type: string
-          description: Presigned URL to download the source video from or upload the output video to
+          description: Presigned URL to download the source video from or upload the output video to. Provide this alone, or use `awsCredentials`, `bucketName`, and `key` instead.
           example: https://videocloud.s3.amazonaws.com/0193893a-a2ba-799e-b258-928f02c0f419/output.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256...x-id=PutObject
         awsCredentials:
+          description: AWS STS AssumeRole credentials for accessing the bucket. Required when using `awsCredentials`/`bucketName`/`key` instead of `presignedUrl`.
           $ref: '#/components/schemas/CredentialsS3'
         bucketName:
           type: string
+          description: S3 bucket name. Required when using `awsCredentials`/`bucketName`/`key` instead of `presignedUrl`.
           example: galaxies
         key:
           type: string
-          description: 'The example includes the standard specifier for image sequence requests, with optional directory path. It must begin with "%" and end with the integer specifier "d". The "0" in the
-            example indicates left-padding with zeroes, and "6" indicates the number of digits in the file name.
+          description: 'S3 object key. Required when using `awsCredentials`/`bucketName`/`key` instead of `presignedUrl`.
+
+            The example includes the standard specifier for image sequence requests, with optional directory path. It must begin with "%" and end with the integer specifier "d". The "0" in the example indicates
+            left-padding with zeroes, and "6" indicates the number of digits in the file name.
 
             Keys for video requests must be valid characters supported by S3.
 
             '
           example: milky_way/%06d.tiff
+        multipart:
+          type: object
+          description: Destination only. Your own pre-signed multi-part upload URLs. These are not validated by Topaz Labs before use.
+          required:
+          - uploadId
+          - urls
+          properties:
+            uploadId:
+              type: string
+              example: GDlWC7qIaE6okS41Xf/ktpuS5XzTRabg
+            urls:
+              type: array
+              items:
+                type: string
     FrameInterpolationFilter:
       title: Frame Interpolation Filter
       type: object
@@ -3147,13 +3466,14 @@ components:
 
             '
           enum:
+          - aion-1
           - apf-2
           - apo-8
           - chf-3
           - chr-2
           example: apo-8
         slowmo:
-          type: number
+          type: integer
           minimum: 1
           maximum: 16
           description: Slow motion factor applied to input video. For example, a value of 2 makes the output twice as slow and doubles the duration.
@@ -3174,8 +3494,33 @@ components:
           maximum: 0.1
           description: Sensitivity of detection for duplicate frames
           example: 0.01
-    HistoryResponse:
+    InitialEstimates:
       type: object
+      description: 'Initial cost and time estimate, recorded when the request is costed. Absent until then — express requests are costed after the source has been received and analyzed.
+
+        '
+      properties:
+        cost:
+          type: array
+          description: In credits
+          items:
+            type: integer
+          example:
+          - 10
+          - 12
+        time:
+          type: array
+          description: In seconds
+          items:
+            type: integer
+          example:
+          - 600
+          - 700
+    VideoRequestRecord:
+      type: object
+      description: 'Full record of a request, as returned by `GET /video/{requestId}` and for each entry of `GET /video/history`.
+
+        '
       properties:
         id:
           type: string
@@ -3226,8 +3571,85 @@ components:
         lastEventTs:
           type: number
           description: Timestamp of the last event, in milliseconds since UTC epoch
+        adminId:
+          type: number
+          description: Non-zero when the request was created on your behalf by a Topaz Labs administrator
+        version:
+          type: string
+          description: Identifier of the client that created the request
+          example: api
+        processing:
+          type: object
+          description: 'Bookkeeping from the processing pipeline. Populated only for requests handled by the generative pipeline; an empty object for every other request.
+
+            '
+          properties:
+            topserving:
+              type: object
+              properties:
+                lastUpdated:
+                  type: number
+                  description: Timestamp of the last progress report received from the processing backend, in milliseconds since UTC epoch
+        filters:
+          $ref: '#/components/schemas/InputFilters'
+        output:
+          $ref: '#/components/schemas/OutputInformationVideo'
+        source:
+          type: object
+          description: 'Source details. `frameCount`, `frameRate`, `resolution`, `size` and `duration` start as the values you supplied and are corrected once the system analyzes the file.
+
+            '
+          properties:
+            container:
+              type: string
+              example: mp4
+            frameCount:
+              type: number
+            frameRate:
+              type: number
+            resolution:
+              type: object
+              properties:
+                width:
+                  type: integer
+                height:
+                  type: integer
+            size:
+              type: integer
+              description: In bytes
+            duration:
+              type: number
+              description: In seconds, or the frame count for image sequence requests
+            startNumber:
+              type: integer
+              description: Image sequence requests only
+            endNumber:
+              type: integer
+              description: Image sequence requests only, exclusive
+            md5Hash:
+              type: string
+            download:
+              $ref: '#/components/schemas/EnhancedDownloadSignedUrlResponse'
+        destination:
+          type: object
+          properties:
+            container:
+              type: string
+              example: mp4
+            frameCount:
+              type: number
+            frameRate:
+              type: number
+            duration:
+              type: number
+              description: In seconds
+            size:
+              type: integer
+              description: In bytes
+            download:
+              $ref: '#/components/schemas/EnhancedDownloadSignedUrlResponse'
         estimates:
-          $ref: '#/components/schemas/RequestEstimates'
+          $ref: '#/components/schemas/InitialEstimates'
         transactions:
           type: array
           items:
@@ -3242,12 +3664,58 @@ components:
               amount:
                 type: number
                 description: Amount involved in the transaction, in credits
+        overrides:
+          type: object
+          properties:
+            forceHighPerformance:
+              type: boolean
+              description: Whether the request was placed on higher-performance processing hardware
+            shouldAddWatermark:
+              type: boolean
+              description: Whether the enhanced output carries a Topaz Labs watermark. Absent or `false` unless the request was created through a client that watermarks its output.
         error:
           type: object
-          description: Error message, if the request was a failure
+          description: 'Present only if the request failed. The `errorCode` originates from the processing pipeline and may take values beyond the synchronous API error codes returned in HTTP error responses.
+
+            '
           properties:
             message:
               type: string
+            errorCode:
+              type: string
+              description: 'Failure code from the processing pipeline.
+
+
+                Known values include:
+
+                - INSUFFICIENT_CREDITS
+
+                - CREDIT_DIFFERENCE
+
+                - INVALID_INPUT
+
+                - FORBIDDEN
+
+                - UNAUTHORIZED
+
+                - TIMEOUT_UPLOAD_SOURCE
+
+                - TIMEOUT_QUEUE
+
+                - TIMEOUT_PROCESSING
+
+                - PROCESSING_FAILURE
+
+                - SERVER_MAINTENANCE
+
+                - SERVER_ERROR
+
+                - HARDWARE_FAILURE
+
+                - UNKNOWN
+
+                '
+              example: PROCESSING_FAILURE
     InputFilters:
       type: array
       description: Array of UpscaleFilter or FrameInterpolationFilter objects
@@ -3360,15 +3828,12 @@ components:
           type: number
           description: Frame rate
           example: 30
-        codecId:
-          type: string
-          description: Video codec ID, if known. Defaults to videoEncoder.
-          example: h265-main-win-nvidia
         videoEncoder:
           type: string
           enum:
           - DPX
           - EXR
+          - JPG
           - JPEG
           - PNG
           - TIFF
@@ -3386,6 +3851,7 @@ components:
           enum:
           - DPX
           - EXR
+          - JPG
           - JPEG
           - PNG
           - TIFF
@@ -3393,10 +3859,81 @@ components:
           example: TIFF
     OutputInformationVideo:
       type: object
+      description: 'Desired output settings.
+
+
+        Some values are adjusted server-side before processing:
+
+
+        - `resolution` width and height are rounded up to the nearest multiple of 4.
+
+        - `resolution` is forced to the source resolution when no upscale model is present in `filters`.
+
+        - `frameRate` is forced to the source frame rate when no frame interpolation model is present in `filters`, and defaults to it when omitted.
+
+        - With a frame interpolation model, `frameRate` and that filter''s `fps` are both set to the greater of the two.
+
+        - `container` is forced to `mov` when `videoEncoder` is `ProRes` and to `mp4` when it is `AV1` or `VP9`, and defaults to `mp4` otherwise.
+
+
+        The express endpoint supplies no source metadata, so nothing is inferred from the source there: only `resolution` is required, `frameRate` is required only when a frame interpolation filter omits
+        its own `fps`, and the rest of the fields listed as required below take the defaults noted above.
+
+
+        #### Supported encoders and profiles
+
+
+        Every accepted `videoEncoder` / `videoProfile` pair is listed below. `videoEncoder` defaults to `H265` and `videoProfile` to the default profile of the chosen encoder. Any other combination is rejected
+        with `400` `INVALID_INPUT`, and the error message lists the profiles the encoder does support.
+
+
+        | **videoEncoder** | **videoProfile**     | **container**       | **Max resolution** |
+
+        |------------------|----------------------|---------------------|--------------------|
+
+        | AV1              | `8-bit` _(default)_  | `mp4`               | 16384 x 8704       |
+
+        | AV1              | `10-bit`             | `mp4`               | 16384 x 8704       |
+
+        | H264             | `High` _(default)_   | `mp4`, `mov`, `mkv` | 4096 x 4096        |
+
+        | H265             | `Main`               | `mp4`, `mov`, `mkv` | 8192 x 8192        |
+
+        | H265             | `Main10` _(default)_ | `mp4`, `mov`, `mkv` | 8192 x 8192        |
+
+        | ProRes           | `422 Proxy`          | `mov`               | 16386 x 16386      |
+
+        | ProRes           | `422 LT`             | `mov`               | 16386 x 16386      |
+
+        | ProRes           | `422 Std`            | `mov`               | 16386 x 16386      |
+
+        | ProRes           | `422 HQ` _(default)_ | `mov`               | 16386 x 16386      |
+
+        | VP9              | `Good` _(default)_   | `mp4`               | 8192 x 8192        |
+
+        | VP9              | `Best`               | `mp4`               | 8192 x 8192        |
+
+
+        - Encoder and profile values are matched case-insensitively.
+
+        - **Max resolution** applies in either orientation, so AV1 also accepts 8704 x 16384. Exceeding it is rejected with `400` `INVALID_INPUT`.
+
+        - **container** lists the containers you can receive for that encoder. ProRes, AV1, and VP9 replace whatever `container` you send with the single value shown; H264 and H265 honor your choice among
+        the values shown.
+
+        - `videoBitrate` is capped per encoder — **800 mbps** for AV1, **2000 mbps** for H264, H265, and VP9, and uncapped for ProRes. A higher value is rejected with `400` `INVALID_INPUT` — unless `dynamicCompressionLevel`
+        is also set, in which case `videoBitrate` is discarded and the compression level is used instead.
+
+        - `VP9` requires `videoBitrate`. Selecting it without one is rejected with `400` `INVALID_INPUT`.
+
+        - `dynamicCompressionLevel` maps to a CQP value defined per encoder and profile, and applies to AV1, H264, and H265 only.
+
+        - For ProRes and VP9 the storage portion of the cost estimate is derived from the source file size rather than a predicted output size.
+
+        '
       required:
       - resolution
       - frameRate
-      - audioCodec
       - audioTransfer
       properties:
         resolution:
@@ -3408,13 +3945,11 @@ components:
           properties:
             width:
               type: integer
-              description: Width in pixels. The maximum size depends on the encoder and can be referenced using the table below <table> <tr> <td>H264</td> <td>H265</td> <td>ProRes <td>AV1 <td>VP9 </tr>
-                <tr> <td>4096</td> <td>8192</td> <td>16386</td> <td>16384</td> <td>8192</td> </tr> </table>
+              description: Width in pixels. The maximum depends on `videoEncoder` — see **Supported encoders and profiles** above.
               example: 7680
             height:
               type: integer
-              description: Height in pixels. The maximum size depends on the encoder and can be referenced using the table below <table> <tr> <td>H264</td> <td>H265</td> <td>ProRes <td>AV1 <td>VP9 </tr>
-                <tr> <td>4096</td> <td>8192</td> <td>16386</td> <td>8704</td> <td>8192</td> </tr> </table>
+              description: Height in pixels. The maximum depends on `videoEncoder` — see **Supported encoders and profiles** above.
               example: 4320
         frameRate:
           type: number
@@ -3430,7 +3965,7 @@ components:
           - AAC
           - AC3
           - PCM
-          description: __Required if audioTransfer is Copy or Convert.__
+          description: __Required unless audioTransfer is None.__
           example: AAC
         audioTransfer:
           type: string
@@ -3439,21 +3974,20 @@ components:
           - Convert
           - None
           example: Copy
-        codecId:
-          type: string
-          description: Video codec ID, if known. Defaults to videoEncoder.
-          example: h265-main-win-nvidia
         videoEncoder:
           type: string
+          description: Video encoder for the output. Defaults to `H265`. See **Supported encoders and profiles** above for the profiles, containers, and limits of each encoder.
           enum:
           - AV1
           - H264
           - H265
+          - ProRes
           - VP9
           example: H265
         videoBitrate:
           type: string
-          description: __Required if dynamicCompressionLevel is not provided.__ Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second.
+          description: Constant bitrate, suffixed with "k" for kilobits or "m" for megabits per second. Mutually exclusive with `dynamicCompressionLevel`. __Required when `videoEncoder` is `VP9`.__ Each
+            encoder caps this value — see **Supported encoders and profiles** above.
           example: 1k
         dynamicCompressionLevel:
           type: string
@@ -3461,12 +3995,12 @@ components:
           - Low
           - Mid
           - High
-          description: __Required if videoBitrate is not provided.__ Automatic CQP selection.
+          description: Automatic CQP selection. Mutually exclusive with `videoBitrate`. If neither is provided, this defaults to `High`. Applies to the `AV1`, `H264`, and `H265` encoders only.
           example: Mid
         videoProfile:
           type: string
-          description: Codec profile specific to videoEncoder. The following are some combinations of available profiles based on the 'videoEncoder' selection <table> <tr> <td>H264</td> <td>H265</td> <td>ProRes
-            <td>AV1 <td>VP9 </tr> <tr> <td>High</td> <td>Main, Main10</td> <td>422 Proxy, 422 LT, 422 Std, 422 HQ</td> <td>8-bit, 10-bit</td> <td>Good, Best</td> </tr> </table>
+          description: Codec profile, specific to the chosen `videoEncoder`. Defaults to that encoder's default profile (`Main10` for `H265`). See **Supported encoders and profiles** above for the accepted
+            values.
           example: Main
         cropToFit:
           type: boolean
@@ -3478,7 +4012,9 @@ components:
           - mp4
           - mov
           - mkv
-          description: Desired output container
+          - avi
+          - webm
+          description: Desired output container. Defaults to `mp4`. Ignored and replaced with `mov` when `videoEncoder` is `ProRes`, and with `mp4` when it is `AV1` or `VP9`.
           example: mp4
     ProcessingStatIntermediate:
       type: array
@@ -3507,41 +4043,22 @@ components:
             - canceled
             - failed
             example: processing
-          gpuUtilization:
-            type: number
-            description: In percentage
-            example: 56
-          gpuMemoryUtilization:
-            type: number
-            description: In percentage
-            example: 65
-          sampleCount:
-            type: integer
-            description: The number of latest processing stat records used in the average calculation
-            example: 20
-          currentFrame:
-            type: integer
-            example: 123
-          expectedOutputFrames:
-            type: integer
-            description: This value and currentFrame is used to calculate the progress %
-            example: 320
-          latestLogTs:
-            type: integer
-            description: Timestamp of the latest stat record in milliseconds since UTC epoch
-            example: 1727213410471
-          currentSize:
-            type: integer
-            description: In bytes
-            example: 123456
-          fps:
-            type: number
-            description: Processing speed of the node
-            example: 2.34
           progress:
             type: number
             description: In percentage
             example: 90
+          averageFps:
+            type: number
+            description: Processing speed of the node
+            example: 2.34
+          averageGpuUtilization:
+            type: number
+            description: In percentage
+            example: 56
+          averageGpuMemoryUtilization:
+            type: number
+            description: In percentage
+            example: 65
     RequestEstimates:
       type: object
       description: Lower and upper bound estimates
@@ -3599,6 +4116,41 @@ components:
         message:
           type: string
           example: Processing
+        errorCode:
+          type: string
+          description: 'Present only when `status` is `failed`. Originates from the processing pipeline.
+
+
+            Known values include:
+
+            - INSUFFICIENT_CREDITS
+
+            - CREDIT_DIFFERENCE
+
+            - INVALID_INPUT
+
+            - FORBIDDEN
+
+            - UNAUTHORIZED
+
+            - TIMEOUT_UPLOAD_SOURCE
+
+            - TIMEOUT_QUEUE
+
+            - TIMEOUT_PROCESSING
+
+            - PROCESSING_FAILURE
+
+            - SERVER_MAINTENANCE
+
+            - SERVER_ERROR
+
+            - HARDWARE_FAILURE
+
+            - UNKNOWN
+
+            '
+          example: PROCESSING_FAILURE
         processingJobs:
           $ref: '#/components/schemas/ProcessingStatIntermediate'
           example:
@@ -3606,28 +4158,30 @@ components:
             chunkIndex: 0
             taskIndex: 0
             status: processing
-            gpuUtilization: 56
-            gpuMemoryUtilization: 65
-            sampleCount: 20
-            currentFrame: 123
-            expectedOutputFrames: 320
-            latestLogTs: 1727213410471
-            currentSize: 123456
-            fps: 2.34
             progress: 90
+            averageFps: 2.34
+            averageGpuUtilization: 56
+            averageGpuMemoryUtilization: 65
           - chunkId: 0193b36c-b37f-7997-ab75-c85f61b451e9
             chunkIndex: 1
             taskIndex: 0
             status: processing
-            gpuUtilization: 65
-            gpuMemoryUtilization: 56
-            sampleCount: 20
-            currentFrame: 123
-            expectedOutputFrames: 319
-            latestLogTs: 1727213410471
-            currentSize: 123456
-            fps: 2.34
             progress: 89
+            averageFps: 2.34
+            averageGpuUtilization: 65
+            averageGpuMemoryUtilization: 56
+        uploadId:
+          type: string
+          description: Present only while the request is still awaiting the source upload
+          example: GDlWC7qIaE6okS41Xf/ktpuS5XzTRabg
+        urls:
+          type: array
+          description: Outstanding upload URLs, present only while the request is still awaiting the source upload
+          items:
+            type: string
+        comparisonTool:
+          type: string
+          description: URL to a before/after comparison view. Present only for free renders.
         download:
           $ref: '#/components/schemas/EnhancedDownloadSignedUrlResponse'
     SystemStatusResponse:
@@ -3641,13 +4195,19 @@ components:
           example: Cloud rendering is temporarily disabled for maintenance
         supportedModels:
           type: array
-          description: List of supported models
+          description: 'Authoritative list of models the system currently accepts. May include models beyond those enumerated in the filter schemas of this document.
+
+            '
           items:
             type: string
           example:
           - apo-8
           - prob-4
           - sl-1
+        isFrameInterpolationSupported:
+          type: boolean
+          description: Whether frame interpolation models are currently accepted
+          example: true
     UpscaleFilter:
       title: Upscale Filter
       type: object
@@ -3656,17 +4216,20 @@ components:
       properties:
         model:
           type: string
-          description: 'Short code name for the AI model
+          description: 'Short code name for the AI model.
+
+
+            Newer models may be accepted before they appear in this list — call `GET /video/status` for the authoritative set of currently supported models.
 
             '
           enum:
           - aaa-9
+          - aaa-10
           - ahq-12
           - alq-13
           - alqs-2
           - amq-13
           - amqs-2
-          - color-1
           - ddv-3
           - dtd-4
           - dtds-2
@@ -3674,14 +4237,16 @@ components:
           - dtvs-2
           - gcg-5
           - ghq-5
+          - hyp-1
           - iris-2
           - iris-3
           - nxf-1
           - nxl-1
-          - nxhf-1
           - nyx-3
+          - pnat-1
           - prob-4
           - rhea-1
+          - stab-1
           - thd-3
           - thf-4
           - thm-2
@@ -3774,18 +4339,82 @@ components:
           maximum: 0.1
           description: Adds grain after AI model processing
           example: 0.02
+        grainSigma:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Grain granularity
+          example: 0.5
         grainSize:
           type: number
           minimum: 0
           maximum: 5
           description: Size of generated grain
           example: 1
+        grainType:
+          type: string
+          enum:
+          - silver_rich
+          - gaussian
+          - grey
+          description: Type of grain
+          example: gaussian
         recoverOriginalDetailValue:
           type: number
           minimum: 0
           maximum: 1
           description: Reintroduce source details into the output video
           example: 0.7
+        transferFunction:
+          type: string
+          enum:
+          - pq
+          - hlg
+          description: HDR transfer function. Applies to the Hyperion model (`hyp-1`).
+          example: pq
+        adjustExposure:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Exposure adjustment. Applies to the Hyperion model (`hyp-1`).
+          example: 0.5
+        boostSaturation:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Saturation boost. Applies to the Hyperion model (`hyp-1`).
+          example: 0.5
+        highlightThreshold:
+          type: number
+          minimum: 0.45
+          maximum: 0.85
+          description: Threshold above which pixels are treated as highlights. Applies to the Hyperion model (`hyp-1`).
+          example: 0.6
+        rollingShutterCorrection:
+          type: boolean
+          description: 'Correct rolling shutter distortion.
+
+
+            __Required when the stabilization model (`stab-1`) is used.__ Omitting it returns a 400.
+
+            '
+          example: true
+        strength:
+          type: number
+          minimum: 0
+          maximum: 16
+          description: Stabilization strength. Applies to the stabilization model (`stab-1`).
+          example: 8
+        reduceMotionJitter:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Amount of motion jitter reduction. Applies to the stabilization model (`stab-1`).
+          example: 2
+        fullFrame:
+          type: boolean
+          description: Preserve the full frame rather than cropping to hide stabilization borders. Applies to the stabilization model (`stab-1`).
+          example: false
   responses:
     BadRequestImage:
       description: The request contains malformed data in the body, path, or query parameters.
@@ -3977,26 +4606,12 @@ components:
                 code: 412
                 message: Precondition Failed
     RequestEntityTooLarge:
-      description: The request is larger than the server is willing or able to process.
-      content:
-        application/json:
-          schema:
-            type: object
-            required:
-            - message
-            properties:
-              code:
-                type: integer
-                description: The HTTP status code.
-              message:
-                type: string
-                description: A human readable error message.
-          examples:
-            requestEntityTooLargeExample:
-              summary: The image file uploaded exceeds the maximum allowed size.
-              value:
-                code: 413
-                message: Request Entity Too Large
+      description: 'The JSON request body exceeds the 3000 byte limit. This response has no body.
+
+
+        Large bodies are usually caused by long presigned URLs in `source.external` or `destination.external`, or by an unusually large number of filters.
+
+        '
     UnsupportedMediaType:
       description: The request entity has a media type which the server or resource does not support.
       content:
@@ -4112,6 +4727,36 @@ components:
               message:
                 type: string
                 example: Invalid input
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: INVALID_INPUT
+              errors:
+                type: array
+                description: Present when the request failed schema validation. One entry per offending field.
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: field
+                    path:
+                      type: string
+                      example: source.container
+                    location:
+                      type: string
+                      example: body
+                    msg:
+                      type: string
+                      example: container must be one of mp4, mov, mkv
+                    value: {}
     VideoUnauthorized:
       description: Unauthorized
       content:
@@ -4122,6 +4767,17 @@ components:
               message:
                 type: string
                 example: Unauthorized
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: UNAUTHORIZED
     VideoPaymentRequired:
       description: Payment required
       content:
@@ -4132,6 +4788,17 @@ components:
               message:
                 type: string
                 example: Insufficient credits
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: INSUFFICIENT_CREDITS
     VideoForbidden:
       description: Forbidden
       content:
@@ -4142,6 +4809,17 @@ components:
               message:
                 type: string
                 example: Forbidden
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: FORBIDDEN
     VideoNotFound:
       description: Enhancement request with the provided ID not found
       content:
@@ -4152,6 +4830,17 @@ components:
               message:
                 type: string
                 example: Not Found
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: INVALID_INPUT
     VideoInternalServerError:
       description: Internal server error
       content:
@@ -4162,6 +4851,17 @@ components:
               message:
                 type: string
                 example: Internal server error
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: SERVER_ERROR
     VideoServiceUnavailable:
       description: Service unavailable
       content:
@@ -4172,6 +4872,17 @@ components:
               message:
                 type: string
                 example: Service unavailable
+              errorCode:
+                type: string
+                enum:
+                - INSUFFICIENT_CREDITS
+                - INVALID_INPUT
+                - FORBIDDEN
+                - UNAUTHORIZED
+                - SERVER_MAINTENANCE
+                - SERVER_ERROR
+                - UNKNOWN
+                example: SERVER_MAINTENANCE
   requestBodies:
     CompleteUpload:
       required: true
@@ -4231,14 +4942,35 @@ components:
                   container:
                     type: string
                     enum:
-                    - mp4
-                    - mov
+                    - 3gp
+                    - avi
+                    - dv
+                    - flv
+                    - m1v
+                    - m2t
+                    - m2ts
+                    - m2v
+                    - m4v
                     - mkv
-                    description: The container format of the video file
+                    - mov
+                    - mp4
+                    - mpeg
+                    - mpg
+                    - mts
+                    - mxf
+                    - ser
+                    - ts
+                    - vob
+                    - webm
+                    - wmv
+                    description: The container format of the video file. Matched case-insensitively.
                     example: mp4
                   size:
                     type: integer
-                    description: Size of the video file in bytes
+                    minimum: 1
+                    maximum: 100000000000
+                    exclusiveMaximum: true
+                    description: Size of the video file in bytes. Must be under 100 GB.
                     example: 123456000
                   duration:
                     type: number
@@ -4305,10 +5037,28 @@ components:
                   container:
                     type: string
                     enum:
-                    - mp4
-                    - mov
+                    - 3gp
+                    - avi
+                    - dv
+                    - flv
+                    - m1v
+                    - m2t
+                    - m2ts
+                    - m2v
+                    - m4v
                     - mkv
-                    description: The container format of the video file
+                    - mov
+                    - mp4
+                    - mpeg
+                    - mpg
+                    - mts
+                    - mxf
+                    - ser
+                    - ts
+                    - vob
+                    - webm
+                    - wmv
+                    description: The container format of the video file. Matched case-insensitively.
                     example: mp4
                   md5Hash:
                     type: string

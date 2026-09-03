@@ -16,6 +16,14 @@ namespace Topaz
         public string? Message { get; set; }
 
         /// <summary>
+        /// Example: FORBIDDEN
+        /// </summary>
+        /// <example>FORBIDDEN</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetVideoRequestStatusResponseErrorCode2JsonConverter))]
+        public global::Topaz.GetVideoRequestStatusResponseErrorCode2? ErrorCode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +35,18 @@ namespace Topaz
         /// <param name="message">
         /// Example: Forbidden
         /// </param>
+        /// <param name="errorCode">
+        /// Example: FORBIDDEN
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetVideoRequestStatusResponse2(
-            string? message)
+            string? message,
+            global::Topaz.GetVideoRequestStatusResponseErrorCode2? errorCode)
         {
             this.Message = message;
+            this.ErrorCode = errorCode;
         }
 
         /// <summary>

@@ -8,6 +8,7 @@ namespace Topaz
         /// Complete Video Upload<br/>
         /// Send metadata of the multi-part uploads to complete the upload and begin processing the video.<br/>
         /// Optionally include the MD5 hash of the source video file to validate successful upload before processing.<br/>
+        /// If the accept endpoint returned a single upload URL, the contents of `uploadResults` are not used — the field is still required by request validation, so send a single placeholder entry such as `[{"partNum": 1, "eTag": "unused"}]`.<br/>
         /// ## Request body<br/>
         /// | **Property**    | **Type**         | **Description**                                                                                         |<br/>
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
@@ -32,6 +33,7 @@ namespace Topaz
         /// Complete Video Upload<br/>
         /// Send metadata of the multi-part uploads to complete the upload and begin processing the video.<br/>
         /// Optionally include the MD5 hash of the source video file to validate successful upload before processing.<br/>
+        /// If the accept endpoint returned a single upload URL, the contents of `uploadResults` are not used — the field is still required by request validation, so send a single placeholder entry such as `[{"partNum": 1, "eTag": "unused"}]`.<br/>
         /// ## Request body<br/>
         /// | **Property**    | **Type**         | **Description**                                                                                         |<br/>
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>
@@ -56,6 +58,7 @@ namespace Topaz
         /// Complete Video Upload<br/>
         /// Send metadata of the multi-part uploads to complete the upload and begin processing the video.<br/>
         /// Optionally include the MD5 hash of the source video file to validate successful upload before processing.<br/>
+        /// If the accept endpoint returned a single upload URL, the contents of `uploadResults` are not used — the field is still required by request validation, so send a single placeholder entry such as `[{"partNum": 1, "eTag": "unused"}]`.<br/>
         /// ## Request body<br/>
         /// | **Property**    | **Type**         | **Description**                                                                                         |<br/>
         /// |-----------------|------------------|---------------------------------------------------------------------------------------------------------|<br/>

@@ -27,6 +27,14 @@ namespace Topaz
         public required string ExternalId { get; set; }
 
         /// <summary>
+        /// Lifetime of the assumed-role session, in seconds. Defaults to the AWS default when omitted.<br/>
+        /// Example: 3600
+        /// </summary>
+        /// <example>3600</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
+        public int? Duration { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -43,15 +51,21 @@ namespace Topaz
         /// Kind of like a secret string for extra layer of security<br/>
         /// Example: MSTnuGztXtTU25XKjVfMJCsujv6VtAGtv1TGSjtOL6M=
         /// </param>
+        /// <param name="duration">
+        /// Lifetime of the assumed-role session, in seconds. Defaults to the AWS default when omitted.<br/>
+        /// Example: 3600
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CredentialsS3(
             string roleArn,
-            string externalId)
+            string externalId,
+            int? duration)
         {
             this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.ExternalId = externalId ?? throw new global::System.ArgumentNullException(nameof(externalId));
+            this.Duration = duration;
         }
 
         /// <summary>

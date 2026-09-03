@@ -7,6 +7,7 @@ namespace Topaz
         /// <summary>
         /// Get Video Request Metrics<br/>
         /// Get metrics for the request<br/>
+        /// Metrics are derived from chunked enhancement processing. For requests handled end-to-end by the inference backend, and for requests that have not begun processing, this endpoint returns `200` with only a `message` field indicating that metrics are unavailable.<br/>
         /// ## Response body<br/>
         /// | **Property**        | **Type** | **Description**                                     |<br/>
         /// |---------------------|----------|-----------------------------------------------------|<br/>
@@ -29,6 +30,9 @@ namespace Topaz
         /// | **chunkIndex**                | Integer   | Index of the chunk                      |<br/>
         /// | **tasks**                     | Array     | List of processing tasks for the chunk  |<br/>
         /// | **tasks.*.minutesProcessing** | Number    | Duration of processing in minutes       |<br/>
+        /// | **tasks.*.averageFps**        | Number    | Average processing speed of the node    |<br/>
+        /// | **tasks.*.averageGpuUtilization** | Number | GPU utilization in percentage          |<br/>
+        /// | **tasks.*.averageGpuMemoryUtilization** | Number | GPU memory usage percentage      |<br/>
         /// | **tasks.*.inputFrames**       | Integer   | Number of input frames                  |<br/>
         /// | **tasks.*.outputFrames**      | Integer   | Number of output frames                 |<br/>
         /// | **tasks.*.inputSize**         | String    | Size of the input file                  |<br/>
@@ -47,6 +51,7 @@ namespace Topaz
         /// <summary>
         /// Get Video Request Metrics<br/>
         /// Get metrics for the request<br/>
+        /// Metrics are derived from chunked enhancement processing. For requests handled end-to-end by the inference backend, and for requests that have not begun processing, this endpoint returns `200` with only a `message` field indicating that metrics are unavailable.<br/>
         /// ## Response body<br/>
         /// | **Property**        | **Type** | **Description**                                     |<br/>
         /// |---------------------|----------|-----------------------------------------------------|<br/>
@@ -69,6 +74,9 @@ namespace Topaz
         /// | **chunkIndex**                | Integer   | Index of the chunk                      |<br/>
         /// | **tasks**                     | Array     | List of processing tasks for the chunk  |<br/>
         /// | **tasks.*.minutesProcessing** | Number    | Duration of processing in minutes       |<br/>
+        /// | **tasks.*.averageFps**        | Number    | Average processing speed of the node    |<br/>
+        /// | **tasks.*.averageGpuUtilization** | Number | GPU utilization in percentage          |<br/>
+        /// | **tasks.*.averageGpuMemoryUtilization** | Number | GPU memory usage percentage      |<br/>
         /// | **tasks.*.inputFrames**       | Integer   | Number of input frames                  |<br/>
         /// | **tasks.*.outputFrames**      | Integer   | Number of output frames                 |<br/>
         /// | **tasks.*.inputSize**         | String    | Size of the input file                  |<br/>

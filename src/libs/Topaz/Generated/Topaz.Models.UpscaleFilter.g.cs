@@ -9,7 +9,8 @@ namespace Topaz
     public sealed partial class UpscaleFilter
     {
         /// <summary>
-        /// Short code name for the AI model<br/>
+        /// Short code name for the AI model.<br/>
+        /// Newer models may be accepted before they appear in this list — call `GET /video/status` for the authoritative set of currently supported models.<br/>
         /// Example: prob-4
         /// </summary>
         /// <example>prob-4</example>
@@ -122,6 +123,14 @@ namespace Topaz
         public double? Grain { get; set; }
 
         /// <summary>
+        /// Grain granularity<br/>
+        /// Example: 0.5
+        /// </summary>
+        /// <example>0.5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("grainSigma")]
+        public double? GrainSigma { get; set; }
+
+        /// <summary>
         /// Size of generated grain<br/>
         /// Example: 1
         /// </summary>
@@ -130,12 +139,87 @@ namespace Topaz
         public double? GrainSize { get; set; }
 
         /// <summary>
+        /// Type of grain<br/>
+        /// Example: gaussian
+        /// </summary>
+        /// <example>gaussian</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("grainType")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.UpscaleFilterGrainTypeJsonConverter))]
+        public global::Topaz.UpscaleFilterGrainType? GrainType { get; set; }
+
+        /// <summary>
         /// Reintroduce source details into the output video<br/>
         /// Example: 0.7
         /// </summary>
         /// <example>0.7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("recoverOriginalDetailValue")]
         public double? RecoverOriginalDetailValue { get; set; }
+
+        /// <summary>
+        /// HDR transfer function. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: pq
+        /// </summary>
+        /// <example>pq</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transferFunction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.UpscaleFilterTransferFunctionJsonConverter))]
+        public global::Topaz.UpscaleFilterTransferFunction? TransferFunction { get; set; }
+
+        /// <summary>
+        /// Exposure adjustment. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.5
+        /// </summary>
+        /// <example>0.5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adjustExposure")]
+        public double? AdjustExposure { get; set; }
+
+        /// <summary>
+        /// Saturation boost. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.5
+        /// </summary>
+        /// <example>0.5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("boostSaturation")]
+        public double? BoostSaturation { get; set; }
+
+        /// <summary>
+        /// Threshold above which pixels are treated as highlights. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.6
+        /// </summary>
+        /// <example>0.6</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("highlightThreshold")]
+        public double? HighlightThreshold { get; set; }
+
+        /// <summary>
+        /// Correct rolling shutter distortion.<br/>
+        /// __Required when the stabilization model (`stab-1`) is used.__ Omitting it returns a 400.<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rollingShutterCorrection")]
+        public bool? RollingShutterCorrection { get; set; }
+
+        /// <summary>
+        /// Stabilization strength. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: 8
+        /// </summary>
+        /// <example>8</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("strength")]
+        public double? Strength { get; set; }
+
+        /// <summary>
+        /// Amount of motion jitter reduction. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: 2
+        /// </summary>
+        /// <example>2</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reduceMotionJitter")]
+        public int? ReduceMotionJitter { get; set; }
+
+        /// <summary>
+        /// Preserve the full frame rather than cropping to hide stabilization borders. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: false
+        /// </summary>
+        /// <example>false</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fullFrame")]
+        public bool? FullFrame { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -147,7 +231,8 @@ namespace Topaz
         /// Initializes a new instance of the <see cref="UpscaleFilter" /> class.
         /// </summary>
         /// <param name="model">
-        /// Short code name for the AI model<br/>
+        /// Short code name for the AI model.<br/>
+        /// Newer models may be accepted before they appear in this list — call `GET /video/status` for the authoritative set of currently supported models.<br/>
         /// Example: prob-4
         /// </param>
         /// <param name="videoType">
@@ -201,13 +286,54 @@ namespace Topaz
         /// Adds grain after AI model processing<br/>
         /// Example: 0.02
         /// </param>
+        /// <param name="grainSigma">
+        /// Grain granularity<br/>
+        /// Example: 0.5
+        /// </param>
         /// <param name="grainSize">
         /// Size of generated grain<br/>
         /// Example: 1
         /// </param>
+        /// <param name="grainType">
+        /// Type of grain<br/>
+        /// Example: gaussian
+        /// </param>
         /// <param name="recoverOriginalDetailValue">
         /// Reintroduce source details into the output video<br/>
         /// Example: 0.7
+        /// </param>
+        /// <param name="transferFunction">
+        /// HDR transfer function. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: pq
+        /// </param>
+        /// <param name="adjustExposure">
+        /// Exposure adjustment. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.5
+        /// </param>
+        /// <param name="boostSaturation">
+        /// Saturation boost. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.5
+        /// </param>
+        /// <param name="highlightThreshold">
+        /// Threshold above which pixels are treated as highlights. Applies to the Hyperion model (`hyp-1`).<br/>
+        /// Example: 0.6
+        /// </param>
+        /// <param name="rollingShutterCorrection">
+        /// Correct rolling shutter distortion.<br/>
+        /// __Required when the stabilization model (`stab-1`) is used.__ Omitting it returns a 400.<br/>
+        /// Example: true
+        /// </param>
+        /// <param name="strength">
+        /// Stabilization strength. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: 8
+        /// </param>
+        /// <param name="reduceMotionJitter">
+        /// Amount of motion jitter reduction. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: 2
+        /// </param>
+        /// <param name="fullFrame">
+        /// Preserve the full frame rather than cropping to hide stabilization borders. Applies to the stabilization model (`stab-1`).<br/>
+        /// Example: false
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -226,8 +352,18 @@ namespace Topaz
             double? preblur,
             double? blur,
             double? grain,
+            double? grainSigma,
             double? grainSize,
-            double? recoverOriginalDetailValue)
+            global::Topaz.UpscaleFilterGrainType? grainType,
+            double? recoverOriginalDetailValue,
+            global::Topaz.UpscaleFilterTransferFunction? transferFunction,
+            double? adjustExposure,
+            double? boostSaturation,
+            double? highlightThreshold,
+            bool? rollingShutterCorrection,
+            double? strength,
+            int? reduceMotionJitter,
+            bool? fullFrame)
         {
             this.Model = model;
             this.VideoType = videoType;
@@ -242,8 +378,18 @@ namespace Topaz
             this.Preblur = preblur;
             this.Blur = blur;
             this.Grain = grain;
+            this.GrainSigma = grainSigma;
             this.GrainSize = grainSize;
+            this.GrainType = grainType;
             this.RecoverOriginalDetailValue = recoverOriginalDetailValue;
+            this.TransferFunction = transferFunction;
+            this.AdjustExposure = adjustExposure;
+            this.BoostSaturation = boostSaturation;
+            this.HighlightThreshold = highlightThreshold;
+            this.RollingShutterCorrection = rollingShutterCorrection;
+            this.Strength = strength;
+            this.ReduceMotionJitter = reduceMotionJitter;
+            this.FullFrame = fullFrame;
         }
 
         /// <summary>

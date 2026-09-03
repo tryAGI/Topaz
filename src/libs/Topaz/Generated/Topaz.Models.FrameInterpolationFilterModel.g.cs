@@ -12,6 +12,10 @@ namespace Topaz
         /// <summary>
         ///
         /// </summary>
+        Aion1,
+        /// <summary>
+        ///
+        /// </summary>
         Apf2,
         /// <summary>
         ///
@@ -39,6 +43,7 @@ namespace Topaz
         {
             return value switch
             {
+                FrameInterpolationFilterModel.Aion1 => "aion-1",
                 FrameInterpolationFilterModel.Apf2 => "apf-2",
                 FrameInterpolationFilterModel.Apo8 => "apo-8",
                 FrameInterpolationFilterModel.Chf3 => "chf-3",
@@ -53,6 +58,7 @@ namespace Topaz
         {
             return value switch
             {
+                "aion-1" => FrameInterpolationFilterModel.Aion1,
                 "apf-2" => FrameInterpolationFilterModel.Apf2,
                 "apo-8" => FrameInterpolationFilterModel.Apo8,
                 "chf-3" => FrameInterpolationFilterModel.Chf3,
