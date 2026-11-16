@@ -20,8 +20,8 @@ namespace Topaz
         /// </summary>
         /// <example>SERVER_MAINTENANCE</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCode7JsonConverter))]
-        public global::Topaz.AcceptVideoRequestResponseErrorCode7? ErrorCode { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.AcceptVideoRequestResponseErrorCodeJsonConverter))]
+        public global::Topaz.AcceptVideoRequestResponseErrorCode? ErrorCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,7 +43,7 @@ namespace Topaz
 #endif
         public AcceptVideoRequestResponse7(
             string? message,
-            global::Topaz.AcceptVideoRequestResponseErrorCode7? errorCode)
+            global::Topaz.AcceptVideoRequestResponseErrorCode? errorCode)
         {
             this.Message = message;
             this.ErrorCode = errorCode;

@@ -22,26 +22,18 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelEstimateResponseStatus), TypeInfoPropertyName = "CancelEstimateResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.GetCancelEstimateResponseError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode2), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode3), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode4), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponse5))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode5), TypeInfoPropertyName = "GetCancelEstimateResponseErrorCode52")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelEstimateResponseStatus?), TypeInfoPropertyName = "NullableCancelEstimateResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode2?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode3?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode32")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode4?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode42")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode5?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode52")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetCancelEstimateResponseErrorCode?), TypeInfoPropertyName = "NullableGetCancelEstimateResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.GetCancelEstimateResponseError>))]
     internal sealed partial class CancelEstimateSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -118,23 +110,7 @@ namespace Topaz
 
                     || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode)
 
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode?)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode2)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode2?)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode3)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode3?)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode4)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode4?)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode5)
-
-                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode5?);
+                    || typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -159,46 +135,6 @@ namespace Topaz
                 if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode?))
                 {
                     return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCodeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode2))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode2JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode2?))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode2NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode3))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode3JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode3?))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode3NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode4))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode4JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode4?))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode4NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode5))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode5JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetCancelEstimateResponseErrorCode5?))
-                {
-                    return new global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode5NullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

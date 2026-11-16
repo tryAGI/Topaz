@@ -59,15 +59,12 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.VideoRequestRecord>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode), TypeInfoPropertyName = "GetHistoryResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode), TypeInfoPropertyName = "GetHistoryResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.GetHistoryResponseError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode2), TypeInfoPropertyName = "GetHistoryResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode3), TypeInfoPropertyName = "GetHistoryResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponse5))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode4), TypeInfoPropertyName = "GetHistoryResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
@@ -89,10 +86,7 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterFocusFixLevel?), TypeInfoPropertyName = "NullableUpscaleFilterFocusFixLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterGrainType?), TypeInfoPropertyName = "NullableUpscaleFilterGrainType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterTransferFunction?), TypeInfoPropertyName = "NullableUpscaleFilterTransferFunction2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode?), TypeInfoPropertyName = "NullableGetHistoryResponseErrorCode2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode2?), TypeInfoPropertyName = "NullableGetHistoryResponseErrorCode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode3?), TypeInfoPropertyName = "NullableGetHistoryResponseErrorCode32")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode4?), TypeInfoPropertyName = "NullableGetHistoryResponseErrorCode42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.GetHistoryResponseErrorCode?), TypeInfoPropertyName = "NullableGetHistoryResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.AnyOf<global::Topaz.UpscaleFilter, global::Topaz.FrameInterpolationFilter>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.VideoRequestRecordTransaction>))]
@@ -230,19 +224,7 @@ namespace Topaz
 
                     || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode)
 
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode?)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode2)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode2?)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode3)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode3?)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode4)
-
-                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode4?);
+                    || typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -407,36 +389,6 @@ namespace Topaz
                 if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode?))
                 {
                     return new global::Topaz.JsonConverters.GetHistoryResponseErrorCodeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode2))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode2JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode2?))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode2NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode3))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode3JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode3?))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode3NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode4))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode4JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.GetHistoryResponseErrorCode4?))
-                {
-                    return new global::Topaz.JsonConverters.GetHistoryResponseErrorCode4NullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

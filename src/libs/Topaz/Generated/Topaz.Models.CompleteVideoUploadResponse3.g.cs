@@ -20,8 +20,8 @@ namespace Topaz
         /// </summary>
         /// <example>UNAUTHORIZED</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCode2JsonConverter))]
-        public global::Topaz.CompleteVideoUploadResponseErrorCode2? ErrorCode { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.CompleteVideoUploadResponseErrorCodeJsonConverter))]
+        public global::Topaz.CompleteVideoUploadResponseErrorCode? ErrorCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,7 +43,7 @@ namespace Topaz
 #endif
         public CompleteVideoUploadResponse3(
             string? message,
-            global::Topaz.CompleteVideoUploadResponseErrorCode2? errorCode)
+            global::Topaz.CompleteVideoUploadResponseErrorCode? errorCode)
         {
             this.Message = message;
             this.ErrorCode = errorCode;
