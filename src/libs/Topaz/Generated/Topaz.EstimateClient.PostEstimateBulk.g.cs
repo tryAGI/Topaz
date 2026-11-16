@@ -379,19 +379,19 @@ namespace Topaz
                             {
                                 string? __content_401 = null;
                                 global::System.Exception? __exception_401 = null;
-                                global::Topaz.PostEstimateBulkResponse2? __value_401 = null;
+                                global::Topaz.PostEstimateBulkResponse? __value_401 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_401 = global::Topaz.PostEstimateBulkResponse2.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_401, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_401 = global::Topaz.PostEstimateBulkResponse2.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_401, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -400,7 +400,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse2>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_401,
@@ -416,19 +416,19 @@ namespace Topaz
                             {
                                 string? __content_403 = null;
                                 global::System.Exception? __exception_403 = null;
-                                global::Topaz.PostEstimateBulkResponse3? __value_403 = null;
+                                global::Topaz.PostEstimateBulkResponse? __value_403 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::Topaz.PostEstimateBulkResponse3.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_403, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_403 = global::Topaz.PostEstimateBulkResponse3.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_403, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -437,7 +437,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse3>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
@@ -453,19 +453,19 @@ namespace Topaz
                             {
                                 string? __content_429 = null;
                                 global::System.Exception? __exception_429 = null;
-                                global::Topaz.PostEstimateBulkResponse4? __value_429 = null;
+                                global::Topaz.PostEstimateBulkResponse? __value_429 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_429 = global::Topaz.PostEstimateBulkResponse4.FromJson(__content_429, JsonSerializerContext);
+                                        __value_429 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_429, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_429 = global::Topaz.PostEstimateBulkResponse4.FromJson(__content_429, JsonSerializerContext);
+                                        __value_429 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_429, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -474,7 +474,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse4>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
@@ -490,19 +490,19 @@ namespace Topaz
                             {
                                 string? __content_500 = null;
                                 global::System.Exception? __exception_500 = null;
-                                global::Topaz.PostEstimateBulkResponse5? __value_500 = null;
+                                global::Topaz.PostEstimateBulkResponse? __value_500 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Topaz.PostEstimateBulkResponse5.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_500, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Topaz.PostEstimateBulkResponse5.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.PostEstimateBulkResponse.FromJson(__content_500, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -511,7 +511,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse5>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.PostEstimateBulkResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,

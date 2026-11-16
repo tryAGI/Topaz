@@ -18,12 +18,6 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse5))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse6))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CancelTaskResponse7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
     internal sealed partial class CancelSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext

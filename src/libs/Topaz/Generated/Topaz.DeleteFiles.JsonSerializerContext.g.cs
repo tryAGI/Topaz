@@ -18,23 +18,15 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.DeleteVideoFilesResponseError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponse5))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5), TypeInfoPropertyName = "DeleteVideoFilesResponseErrorCode52")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode32")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode42")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode52")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.DeleteVideoFilesResponseErrorCode?), TypeInfoPropertyName = "NullableDeleteVideoFilesResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.DeleteVideoFilesResponseError>))]
     internal sealed partial class DeleteFilesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -107,23 +99,7 @@ namespace Topaz
                 return
                     typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode)
 
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode?)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2?)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3?)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4?)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5)
-
-                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5?);
+                    || typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -138,46 +114,6 @@ namespace Topaz
                 if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode?))
                 {
                     return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCodeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode2JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode2?))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode2NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode3JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode3?))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode3NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode4JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode4?))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode4NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode5JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.DeleteVideoFilesResponseErrorCode5?))
-                {
-                    return new global::Topaz.JsonConverters.DeleteVideoFilesResponseErrorCode5NullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

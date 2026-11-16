@@ -20,8 +20,8 @@ namespace Topaz
         /// </summary>
         /// <example>SERVER_ERROR</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCode5JsonConverter))]
-        public global::Topaz.GetCancelEstimateResponseErrorCode5? ErrorCode { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetCancelEstimateResponseErrorCodeJsonConverter))]
+        public global::Topaz.GetCancelEstimateResponseErrorCode? ErrorCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,7 +43,7 @@ namespace Topaz
 #endif
         public GetCancelEstimateResponse5(
             string? message,
-            global::Topaz.GetCancelEstimateResponseErrorCode5? errorCode)
+            global::Topaz.GetCancelEstimateResponseErrorCode? errorCode)
         {
             this.Message = message;
             this.ErrorCode = errorCode;

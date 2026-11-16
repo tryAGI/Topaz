@@ -590,1091 +590,411 @@ namespace Topaz
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse2? Type138 { get; set; }
+        public global::Topaz.PostEnhanceGenResponse? Type138 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse3? Type139 { get; set; }
+        public global::Topaz.PostSharpenResponse? Type139 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse4? Type140 { get; set; }
+        public global::Topaz.PostSharpenGenResponse? Type140 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse5? Type141 { get; set; }
+        public global::Topaz.PostDenoiseResponse? Type141 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse6? Type142 { get; set; }
+        public global::Topaz.PostRestoreGenResponse? Type142 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse7? Type143 { get; set; }
+        public global::Topaz.PostLightingResponse? Type143 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse8? Type144 { get; set; }
+        public global::Topaz.PostMattingResponse? Type144 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse9? Type145 { get; set; }
+        public global::Topaz.PostToolResponse? Type145 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceResponse10? Type146 { get; set; }
+        public global::Topaz.OneOf<global::System.Collections.Generic.IList<global::Topaz.StatusResponse>, global::Topaz.PaginatedStatusesResponse>? Type146 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse? Type147 { get; set; }
+        public global::Topaz.GetAllStatusesResponse2? Type147 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse2? Type148 { get; set; }
+        public global::Topaz.GetAllStatusesResponse3? Type148 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse3? Type149 { get; set; }
+        public global::Topaz.GetAllStatusesResponse4? Type149 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse4? Type150 { get; set; }
+        public global::Topaz.GetAllStatusesResponse5? Type150 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse5? Type151 { get; set; }
+        public global::Topaz.GetAllStatusesResponse6? Type151 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse6? Type152 { get; set; }
+        public global::Topaz.DeleteAllStatusesResponse? Type152 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse7? Type153 { get; set; }
+        public global::Topaz.DeleteAllStatusesResponse2? Type153 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse8? Type154 { get; set; }
+        public global::Topaz.DeleteAllStatusesResponse3? Type154 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse9? Type155 { get; set; }
+        public global::Topaz.DeleteAllStatusesResponse4? Type155 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostEnhanceGenResponse10? Type156 { get; set; }
+        public global::Topaz.DeleteAllStatusesResponse5? Type156 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse? Type157 { get; set; }
+        public global::Topaz.GetStatusResponse? Type157 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse2? Type158 { get; set; }
+        public global::Topaz.DeleteStatusResponse? Type158 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse3? Type159 { get; set; }
+        public global::Topaz.GetDownloadOutputResponse? Type159 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse4? Type160 { get; set; }
+        public global::Topaz.GetDownloadInputResponse? Type160 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse5? Type161 { get; set; }
+        public global::Topaz.PostEstimateResponse? Type161 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse6? Type162 { get; set; }
+        public global::Topaz.PostEstimateGenResponse? Type162 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse7? Type163 { get; set; }
+        public global::Topaz.PostEstimateBulkResponse? Type163 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse8? Type164 { get; set; }
+        public global::Topaz.CancelTaskResponse? Type164 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse9? Type165 { get; set; }
+        public global::Topaz.GetSystemStatusResponse? Type165 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenResponse10? Type166 { get; set; }
+        public global::Topaz.GetSystemStatusResponseErrorCode? Type166 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse? Type167 { get; set; }
+        public global::Topaz.CreateVideoRequestResponse? Type167 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse2? Type168 { get; set; }
+        public global::Topaz.CreateVideoRequestResponseErrorCode? Type168 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse3? Type169 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.CreateVideoRequestResponseError>? Type169 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse4? Type170 { get; set; }
+        public global::Topaz.CreateVideoRequestResponseError? Type170 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse5? Type171 { get; set; }
+        public global::Topaz.CreateVideoRequestResponse2? Type171 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse6? Type172 { get; set; }
+        public global::Topaz.CreateVideoRequestResponse3? Type172 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse7? Type173 { get; set; }
+        public global::Topaz.CreateVideoRequestResponse4? Type173 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse8? Type174 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponse? Type174 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse9? Type175 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponseErrorCode? Type175 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostSharpenGenResponse10? Type176 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.CreateExpressVideoRequestResponseError>? Type176 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse? Type177 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponseError? Type177 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse2? Type178 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponse2? Type178 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse3? Type179 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponse3? Type179 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse4? Type180 { get; set; }
+        public global::Topaz.CreateExpressVideoRequestResponse4? Type180 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse5? Type181 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse? Type181 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse6? Type182 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponseErrorCode? Type182 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse7? Type183 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.AcceptVideoRequestResponseError>? Type183 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse8? Type184 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponseError? Type184 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse9? Type185 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse2? Type185 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostDenoiseResponse10? Type186 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse3? Type186 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse? Type187 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse4? Type187 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse2? Type188 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse5? Type188 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse3? Type189 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse6? Type189 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse4? Type190 { get; set; }
+        public global::Topaz.AcceptVideoRequestResponse7? Type190 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse5? Type191 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse? Type191 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse6? Type192 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse2? Type192 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse7? Type193 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponseErrorCode? Type193 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse8? Type194 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.CompleteVideoUploadResponseError>? Type194 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse9? Type195 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponseError? Type195 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostRestoreGenResponse10? Type196 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse3? Type196 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse? Type197 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse4? Type197 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse2? Type198 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse5? Type198 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse3? Type199 { get; set; }
+        public global::Topaz.CompleteVideoUploadResponse6? Type199 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse4? Type200 { get; set; }
+        public global::Topaz.GetVideoRequestResponse? Type200 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse5? Type201 { get; set; }
+        public global::Topaz.GetVideoRequestResponseErrorCode? Type201 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse6? Type202 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse? Type202 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse7? Type203 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse2? Type203 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse8? Type204 { get; set; }
+        public global::Topaz.CancelVideoRequestResponseErrorCode? Type204 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse9? Type205 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.CancelVideoRequestResponseError>? Type205 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostLightingResponse10? Type206 { get; set; }
+        public global::Topaz.CancelVideoRequestResponseError? Type206 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse? Type207 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse3? Type207 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse2? Type208 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse4? Type208 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse3? Type209 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse5? Type209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse4? Type210 { get; set; }
+        public global::Topaz.CancelVideoRequestResponse6? Type210 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse5? Type211 { get; set; }
+        public global::Topaz.GetCancelEstimateResponse? Type211 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse6? Type212 { get; set; }
+        public global::Topaz.GetCancelEstimateResponseErrorCode? Type212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse7? Type213 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.GetCancelEstimateResponseError>? Type213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse8? Type214 { get; set; }
+        public global::Topaz.GetCancelEstimateResponseError? Type214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse9? Type215 { get; set; }
+        public global::Topaz.GetCancelEstimateResponse2? Type215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostMattingResponse10? Type216 { get; set; }
+        public global::Topaz.GetCancelEstimateResponse3? Type216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse? Type217 { get; set; }
+        public global::Topaz.GetCancelEstimateResponse4? Type217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse2? Type218 { get; set; }
+        public global::Topaz.GetCancelEstimateResponse5? Type218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse3? Type219 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponse? Type219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse4? Type220 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponseErrorCode? Type220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse5? Type221 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.DeleteVideoFilesResponseError>? Type221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse6? Type222 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponseError? Type222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse7? Type223 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponse2? Type223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse8? Type224 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponse3? Type224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse9? Type225 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponse4? Type225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.PostToolResponse10? Type226 { get; set; }
+        public global::Topaz.DeleteVideoFilesResponse5? Type226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.OneOf<global::System.Collections.Generic.IList<global::Topaz.StatusResponse>, global::Topaz.PaginatedStatusesResponse>? Type227 { get; set; }
+        public global::Topaz.GetVideoRequestStatusResponse? Type227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetAllStatusesResponse2? Type228 { get; set; }
+        public global::Topaz.GetVideoRequestStatusResponseErrorCode? Type228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetAllStatusesResponse3? Type229 { get; set; }
+        public global::Topaz.GetVideoRequestMetricsResponse? Type229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetAllStatusesResponse4? Type230 { get; set; }
+        public global::Topaz.GetVideoRequestMetricsResponseErrorCode? Type230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetAllStatusesResponse5? Type231 { get; set; }
+        public global::Topaz.GetHistoryResponse? Type231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetAllStatusesResponse6? Type232 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.VideoRequestRecord>? Type232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.DeleteAllStatusesResponse? Type233 { get; set; }
+        public global::Topaz.GetHistoryResponse2? Type233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.DeleteAllStatusesResponse2? Type234 { get; set; }
+        public global::Topaz.GetHistoryResponseErrorCode? Type234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.DeleteAllStatusesResponse3? Type235 { get; set; }
+        public global::System.Collections.Generic.IList<global::Topaz.GetHistoryResponseError>? Type235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.DeleteAllStatusesResponse4? Type236 { get; set; }
+        public global::Topaz.GetHistoryResponseError? Type236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.DeleteAllStatusesResponse5? Type237 { get; set; }
+        public global::Topaz.GetHistoryResponse3? Type237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetStatusResponse? Type238 { get; set; }
+        public global::Topaz.GetHistoryResponse4? Type238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Topaz.GetStatusResponse2? Type239 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetStatusResponse3? Type240 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetStatusResponse4? Type241 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetStatusResponse5? Type242 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetStatusResponse6? Type243 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse? Type244 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse2? Type245 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse3? Type246 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse4? Type247 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse5? Type248 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse6? Type249 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteStatusResponse7? Type250 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse? Type251 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse2? Type252 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse3? Type253 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse4? Type254 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse5? Type255 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse6? Type256 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadOutputResponse7? Type257 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse? Type258 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse2? Type259 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse3? Type260 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse4? Type261 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse5? Type262 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetDownloadInputResponse6? Type263 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateResponse? Type264 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateResponse2? Type265 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateResponse3? Type266 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateResponse4? Type267 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateResponse5? Type268 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateGenResponse? Type269 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateGenResponse2? Type270 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateGenResponse3? Type271 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateGenResponse4? Type272 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateGenResponse5? Type273 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateBulkResponse? Type274 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateBulkResponse2? Type275 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateBulkResponse3? Type276 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateBulkResponse4? Type277 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.PostEstimateBulkResponse5? Type278 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse? Type279 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse2? Type280 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse3? Type281 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse4? Type282 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse5? Type283 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse6? Type284 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelTaskResponse7? Type285 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetSystemStatusResponse? Type286 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetSystemStatusResponseErrorCode? Type287 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponse? Type288 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponseErrorCode? Type289 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.CreateVideoRequestResponseError>? Type290 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponseError? Type291 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponse2? Type292 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponseErrorCode2? Type293 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponse3? Type294 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponseErrorCode3? Type295 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponse4? Type296 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateVideoRequestResponseErrorCode4? Type297 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponse? Type298 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponseErrorCode? Type299 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.CreateExpressVideoRequestResponseError>? Type300 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponseError? Type301 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponse2? Type302 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponseErrorCode2? Type303 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponse3? Type304 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponseErrorCode3? Type305 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponse4? Type306 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CreateExpressVideoRequestResponseErrorCode4? Type307 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse? Type308 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode? Type309 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.AcceptVideoRequestResponseError>? Type310 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseError? Type311 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse2? Type312 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode2? Type313 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse3? Type314 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode3? Type315 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse4? Type316 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode4? Type317 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse5? Type318 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode5? Type319 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse6? Type320 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode6? Type321 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponse7? Type322 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.AcceptVideoRequestResponseErrorCode7? Type323 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse? Type324 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse2? Type325 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseErrorCode? Type326 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.CompleteVideoUploadResponseError>? Type327 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseError? Type328 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse3? Type329 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseErrorCode2? Type330 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse4? Type331 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseErrorCode3? Type332 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse5? Type333 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseErrorCode4? Type334 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponse6? Type335 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CompleteVideoUploadResponseErrorCode5? Type336 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponse? Type337 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponseErrorCode? Type338 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponse2? Type339 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponseErrorCode2? Type340 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponse3? Type341 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponseErrorCode3? Type342 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponse4? Type343 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestResponseErrorCode4? Type344 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse? Type345 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse2? Type346 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseErrorCode? Type347 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.CancelVideoRequestResponseError>? Type348 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseError? Type349 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse3? Type350 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseErrorCode2? Type351 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse4? Type352 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseErrorCode3? Type353 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse5? Type354 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseErrorCode4? Type355 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponse6? Type356 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.CancelVideoRequestResponseErrorCode5? Type357 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponse? Type358 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseErrorCode? Type359 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.GetCancelEstimateResponseError>? Type360 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseError? Type361 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponse2? Type362 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseErrorCode2? Type363 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponse3? Type364 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseErrorCode3? Type365 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponse4? Type366 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseErrorCode4? Type367 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponse5? Type368 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetCancelEstimateResponseErrorCode5? Type369 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponse? Type370 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseErrorCode? Type371 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.DeleteVideoFilesResponseError>? Type372 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseError? Type373 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponse2? Type374 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseErrorCode2? Type375 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponse3? Type376 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseErrorCode3? Type377 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponse4? Type378 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseErrorCode4? Type379 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponse5? Type380 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.DeleteVideoFilesResponseErrorCode5? Type381 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponse? Type382 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponseErrorCode? Type383 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponse2? Type384 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponseErrorCode2? Type385 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponse3? Type386 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponseErrorCode3? Type387 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponse4? Type388 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestStatusResponseErrorCode4? Type389 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponse? Type390 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponseErrorCode? Type391 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponse2? Type392 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponseErrorCode2? Type393 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponse3? Type394 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponseErrorCode3? Type395 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponse4? Type396 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetVideoRequestMetricsResponseErrorCode4? Type397 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponse? Type398 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.VideoRequestRecord>? Type399 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponse2? Type400 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponseErrorCode? Type401 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Topaz.GetHistoryResponseError>? Type402 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponseError? Type403 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponse3? Type404 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponseErrorCode2? Type405 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponse4? Type406 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponseErrorCode3? Type407 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponse5? Type408 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Topaz.GetHistoryResponseErrorCode4? Type409 { get; set; }
+        public global::Topaz.GetHistoryResponse5? Type239 { get; set; }
 
         /// <summary>
         ///

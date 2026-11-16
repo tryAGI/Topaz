@@ -432,19 +432,19 @@ namespace Topaz
                             {
                                 string? __content_403 = null;
                                 global::System.Exception? __exception_403 = null;
-                                global::Topaz.GetVideoRequestMetricsResponse2? __value_403 = null;
+                                global::Topaz.GetVideoRequestMetricsResponse? __value_403 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::Topaz.GetVideoRequestMetricsResponse2.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_403, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_403 = global::Topaz.GetVideoRequestMetricsResponse2.FromJson(__content_403, JsonSerializerContext);
+                                        __value_403 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_403, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -453,7 +453,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse2>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
@@ -469,19 +469,19 @@ namespace Topaz
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                global::Topaz.GetVideoRequestMetricsResponse3? __value_404 = null;
+                                global::Topaz.GetVideoRequestMetricsResponse? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::Topaz.GetVideoRequestMetricsResponse3.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_404 = global::Topaz.GetVideoRequestMetricsResponse3.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -490,7 +490,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse3>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
@@ -506,19 +506,19 @@ namespace Topaz
                             {
                                 string? __content_500 = null;
                                 global::System.Exception? __exception_500 = null;
-                                global::Topaz.GetVideoRequestMetricsResponse4? __value_500 = null;
+                                global::Topaz.GetVideoRequestMetricsResponse? __value_500 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Topaz.GetVideoRequestMetricsResponse4.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_500, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Topaz.GetVideoRequestMetricsResponse4.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = global::Topaz.GetVideoRequestMetricsResponse.FromJson(__content_500, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -527,7 +527,7 @@ namespace Topaz
                                 }
 
 
-                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse4>.Create(
+                                throw global::Topaz.ApiException<global::Topaz.GetVideoRequestMetricsResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,

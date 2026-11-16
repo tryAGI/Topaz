@@ -54,15 +54,12 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequestDestination))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequestNotifications))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Topaz.CreateVideoRequestResponseError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode2), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode3), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponse4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode4), TypeInfoPropertyName = "CreateVideoRequestResponseErrorCode42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
@@ -83,10 +80,7 @@ namespace Topaz
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterGrainType?), TypeInfoPropertyName = "NullableUpscaleFilterGrainType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.UpscaleFilterTransferFunction?), TypeInfoPropertyName = "NullableUpscaleFilterTransferFunction2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestRequestSourceContainer?), TypeInfoPropertyName = "NullableCreateVideoRequestRequestSourceContainer2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode?), TypeInfoPropertyName = "NullableCreateVideoRequestResponseErrorCode2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode2?), TypeInfoPropertyName = "NullableCreateVideoRequestResponseErrorCode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode3?), TypeInfoPropertyName = "NullableCreateVideoRequestResponseErrorCode32")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode4?), TypeInfoPropertyName = "NullableCreateVideoRequestResponseErrorCode42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Topaz.CreateVideoRequestResponseErrorCode?), TypeInfoPropertyName = "NullableCreateVideoRequestResponseErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Topaz.AnyOf<global::Topaz.UpscaleFilter, global::Topaz.FrameInterpolationFilter>>))]
@@ -223,19 +217,7 @@ namespace Topaz
 
                     || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode)
 
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode?)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode2)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode2?)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode3)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode3?)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode4)
-
-                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode4?);
+                    || typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -400,36 +382,6 @@ namespace Topaz
                 if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode?))
                 {
                     return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCodeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode2))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode2JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode2?))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode2NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode3))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode3JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode3?))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode3NullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode4))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode4JsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Topaz.CreateVideoRequestResponseErrorCode4?))
-                {
-                    return new global::Topaz.JsonConverters.CreateVideoRequestResponseErrorCode4NullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

@@ -20,8 +20,8 @@ namespace Topaz
         /// </summary>
         /// <example>FORBIDDEN</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("errorCode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCode3JsonConverter))]
-        public global::Topaz.GetHistoryResponseErrorCode3? ErrorCode { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Topaz.JsonConverters.GetHistoryResponseErrorCodeJsonConverter))]
+        public global::Topaz.GetHistoryResponseErrorCode? ErrorCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,7 +43,7 @@ namespace Topaz
 #endif
         public GetHistoryResponse4(
             string? message,
-            global::Topaz.GetHistoryResponseErrorCode3? errorCode)
+            global::Topaz.GetHistoryResponseErrorCode? errorCode)
         {
             this.Message = message;
             this.ErrorCode = errorCode;
